@@ -10,7 +10,7 @@
         android:id="@+id/appLogoSplashScreen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="@string/appLogoDescription"
+        android:contentDescription="@string/app_logo_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

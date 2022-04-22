@@ -1,6 +1,7 @@
 package it.pdm.benztrack
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -12,10 +13,11 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
 
         if(sharedPref.getBoolean("firstStart", true)){
-            println("First Start")
-            //TODO: Lanciare l'activity di benvenuto
+            val intent = Intent(this, WelcomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }else{
-            println("Normal Launch")
+            //Normal Launch
             //TODO: Lanciare l'activity della dashboard
         }
     }
