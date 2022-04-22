@@ -2,7 +2,7 @@
     <string name="app_name">BenzTrack</string>
     <string name="app_logo_description">BenzTrack Logo</string>
     <string name="welcome_title">Benvenuto!</string>
-    <string name="welcome_body">BenzTrack è un\'app che si pone come Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nSed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar.</string>
+    <string name="welcome_body">BenzTrack è un\'app che si pone come Crazy Programmer ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nSed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar.</string>
     <string name="hint_name">Inserisci il tuo nome</string>
     <string name="btn_avanti">Avanti</string>
 </resources>
