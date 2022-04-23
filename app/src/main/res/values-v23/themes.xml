@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.BenzTrack" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/lightgray</item>
+        <item name="colorSecondaryVariant">@color/gray</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" targetApi="l">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>
