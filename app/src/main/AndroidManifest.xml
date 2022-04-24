@@ -13,9 +13,6 @@
             android:name=".SelectCarModelActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectCarProducerActivity"
-            android:exported="false" />
-        <activity
             android:name=".SelectCarBrandActivity"
             android:exported="false" />
         <activity
