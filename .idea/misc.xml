@@ -3,19 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Applicazioni/benztrack/app/src/main/res/drawable/custom_buttom.xml" value="0.2985" />
+        <entry key="..\:/Applicazioni/benztrack/app/src/main/res/drawable/ic_arrow_forward.xml" value="0.2985" />
+        <entry key="..\:/Applicazioni/benztrack/app/src/main/res/drawable/rounded_edittext.xml" value="0.2985" />
         <entry key="..\:/Applicazioni/benztrack/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Applicazioni/benztrack/app/src/main/res/layout/activity_select_car_brand.xml" value="1.1" />
+        <entry key="..\:/Applicazioni/benztrack/app/src/main/res/layout/activity_select_car_model.xml" value="0.3509963768115942" />
         <entry key="..\:/Applicazioni/benztrack/app/src/main/res/layout/activity_welcome.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_arrow_forward.xml" value="0.3495" />
-        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_search.xml" value="0.3495" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_brand.xml" value="0.33" />
-        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_welcome.xml" value="0.1762917933130699" />
-        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2525" />
-        <entry key="app/src/main/res/drawable/ic_search_lens.xml" value="0.2525" />
-        <entry key="app/src/main/res/layout/activity_select_car_brand.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_select_car_model.xml" value="0.2758152173913043" />
-        <entry key="app/src/main/res/layout/activity_select_car_producer.xml" value="0.2758152173913043" />
-        <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.20878623188405798" />
       </map>
     </option>
   </component>

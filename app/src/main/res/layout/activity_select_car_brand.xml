@@ -38,17 +38,21 @@
             android:drawablePadding="4dp"
             android:fontFamily="@font/montserrat_regular"
             android:hint="Cerca produttore"
+            android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="4dp" />
 
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnProducerNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/circle_button"
             android:minWidth="0dp"
+            app:cornerRadius="100dp"
             app:icon="@drawable/ic_arrow_forward"
-            app:iconPadding="0dp"
-            app:cornerRadius="100dp"/>
+            app:iconGravity="textStart"
+            app:iconPadding="0dp" />
     </LinearLayout>
 
     <ListView
