@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Seleziona il produttore della tua auto"
+        android:text="@string/select_brand_title"
         android:textSize="28sp"
         android:fontFamily="@font/montserrat_semibold"
         android:textColor="@color/black"
@@ -37,7 +37,7 @@
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="4dp"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="Cerca produttore"
+            android:hint="@string/search_brand"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="4dp" />
