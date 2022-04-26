@@ -10,4 +10,7 @@
     <string name="select_model_fuel">Seleziona l\'alimentazione della tua auto</string>
     <string name="search_brand">Cerca produttore</string>
     <string name="search_model">Cerca modello</string>
+    <string name="diesel">Diesel</string>
+    <string name="benzina">Benzina</string>
+    <string name="ibrida">Ibrida</string>
 </resources>

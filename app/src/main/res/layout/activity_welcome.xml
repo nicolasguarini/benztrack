@@ -27,7 +27,7 @@
         android:textSize="34sp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvPresentation"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
