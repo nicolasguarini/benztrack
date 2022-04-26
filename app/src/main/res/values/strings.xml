@@ -7,6 +7,7 @@
     <string name="btn_avanti">Avanti</string>
     <string name="select_brand_title">Seleziona il produttore della tua auto</string>
     <string name="select_model_title">Seleziona il modello della tua auto</string>
+    <string name="select_model_fuel">Seleziona l\'alimentazione della tua auto</string>
     <string name="search_brand">Cerca produttore</string>
     <string name="search_model">Cerca modello</string>
 </resources>

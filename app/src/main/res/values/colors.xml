@@ -9,5 +9,7 @@
     <color name="lightgray">#FF919191</color>
     <color name="gray">#FF525252</color>
     <color name="gray_bg">#FFEFEFEF</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="lightgray_bg">#D5BABABA</color>
+
 </resources>
