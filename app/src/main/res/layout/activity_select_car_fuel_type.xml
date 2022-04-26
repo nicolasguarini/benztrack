@@ -61,7 +61,8 @@
             app:cornerRadius="25dp"
             app:icon="@drawable/ic_baseline_local_gas_station_24"
             app:iconGravity="textTop"
-            app:iconPadding="11dp" />
+            app:iconPadding="11dp"
+            app:iconTint="@color/greengasoil" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/hybrid"
