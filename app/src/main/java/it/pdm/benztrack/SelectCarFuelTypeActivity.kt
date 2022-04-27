@@ -21,22 +21,27 @@ class SelectCarFuelTypeActivity : AppCompatActivity() {
         val toggleGroup = findViewById<MaterialButtonToggleGroup>(R.id.toggleButtonGroup)
         var selectedFuel = ""
 
-        toggleGroup.addOnButtonCheckedListener{toggleGroup, checkedId, isChecked ->
+        if(selectedModel != "" && selectedModel != ""){
+            val tvSelectFuelType = findViewById<TextView>(R.id.textViewSelectFuelType)
+            tvSelectFuelType.text = tvSelectFuelType.text.toString().replace("auto", "$selectedBrand $selectedModel")
+        }
+
+        toggleGroup.addOnButtonCheckedListener{_, checkedId, isChecked ->
             if(isChecked) {
                 when(checkedId) {
-                    R.id.diesel -> selectedFuel = findViewById<MaterialButton>(R.id.diesel).text.toString()
-                    R.id.gasoil -> selectedFuel = findViewById<MaterialButton>(R.id.gasoil).text.toString()
-                    R.id.hybrid -> selectedFuel = findViewById<MaterialButton>(R.id.hybrid).text.toString()
+                    R.id.diesel -> selectedFuel = "diesel"
+                    R.id.petrol -> selectedFuel = "petrol"
+                    R.id.hybrid -> selectedFuel = "hybrid"
                 }
-            }
-            else {
+            }else {
                 selectedFuel = ""
             }
         }
 
         findViewById<Button>(R.id.btnFuelNext).setOnClickListener {
             if(selectedFuel != ""){
-
+                Toast.makeText(this, "$selectedBrand $selectedModel ($selectedFuel)", Toast.LENGTH_SHORT).show()
+                //TODO: Register car and go to DashboardActivity
             }else{
                 Toast.makeText(this, "No item selected!", Toast.LENGTH_SHORT).show()
             }

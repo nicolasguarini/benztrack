@@ -10,7 +10,7 @@
     <color name="gray">#FF525252</color>
     <color name="gray_bg">#FFEFEFEF</color>
     <color name="white">#FFFFFF</color>
-    <color name="lightgray_bg">#D5BABABA</color>
+    <color name="lightgray_bg">#F1F1F1</color>
     <color name="greengasoil">#59AF4E</color>
 
 </resources>
