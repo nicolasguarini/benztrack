@@ -30,7 +30,7 @@
         android:layout_marginTop="25dp">
 
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/diesel"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
@@ -45,7 +45,7 @@
             app:iconGravity="textTop"
             app:iconPadding="11dp" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/petrol"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             app:iconTint="@color/greengasoil"
             tools:ignore="TextContrastCheck" />
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/hybrid"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
