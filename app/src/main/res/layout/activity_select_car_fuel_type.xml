@@ -54,7 +54,7 @@
                 app:strokeWidth="1dp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/gasoil"
+                android:id="@+id/petrol"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
