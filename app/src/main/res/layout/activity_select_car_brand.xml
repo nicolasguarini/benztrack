@@ -62,5 +62,13 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_regular"
-        android:layout_marginRight="16dp" />
+        android:layout_marginRight="16dp"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarCarBrands"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp" />
 </LinearLayout>
