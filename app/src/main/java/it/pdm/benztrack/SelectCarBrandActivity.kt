@@ -23,7 +23,7 @@ import java.util.concurrent.Executors
 
 class SelectCarBrandActivity : AppCompatActivity() {
     private var selectedBrand = ""
-    val url = URL("https://car-data.p.rapidapi.com/cars/makes")
+    private val url = URL("https://car-data.p.rapidapi.com/cars/makes")
     private var brands : Array<String> = emptyArray()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +52,7 @@ class SelectCarBrandActivity : AppCompatActivity() {
         try {
             val client = OkHttpClient()
             val request = Request.Builder()
-                .url("https://car-data.p.rapidapi.com/cars/makes")
+                .url(url)
                 .get()
                 .addHeader("X-RapidAPI-Host", "car-data.p.rapidapi.com")
                 .addHeader("X-RapidAPI-Key", "09b1cc4c05msh7ee26c674f810e5p1df3e2jsn2e0a7d20d96b")
