@@ -18,6 +18,8 @@
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2525" />
         <entry key="app/src/main/res/drawable/ic_search_lens.xml" value="0.2525" />
         <entry key="app/src/main/res/layout/activity_select_car_brand.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_select_car_euro_category.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/activity_select_car_fuel_type.xml" value="0.20878623188405798" />
         <entry key="app/src/main/res/layout/activity_select_car_model.xml" value="0.2758152173913043" />
         <entry key="app/src/main/res/layout/activity_select_car_producer.xml" value="0.2758152173913043" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.20878623188405798" />

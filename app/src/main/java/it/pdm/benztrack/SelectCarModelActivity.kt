@@ -95,6 +95,7 @@ class SelectCarModelActivity : AppCompatActivity() {
             }
 
             this.models = pageModels.distinct().toTypedArray() //clears duplicates
+            this.models.sort()
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
         }

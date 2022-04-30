@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectCarBrandActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewSelectEuroCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_euro_title"
+        android:textSize="28sp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/black"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="28dp" />
+
+    <ListView
+        android:id="@+id/listViewEuroCategory"
+        android:layout_width="match_parent"
+        android:layout_height="394dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/montserrat_regular" />
+
+    <Button
+        android:id="@+id/btnEuroNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/btn_avanti"
+        app:cornerRadius="100dp"
+        android:layout_marginTop="42dp"/>
+</LinearLayout>

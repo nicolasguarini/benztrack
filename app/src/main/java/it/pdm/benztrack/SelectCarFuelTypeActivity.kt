@@ -41,7 +41,15 @@ class SelectCarFuelTypeActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnFuelNext).setOnClickListener {
             if(selectedFuel != ""){
                 Toast.makeText(this, "$selectedBrand $selectedModel ($selectedFuel)", Toast.LENGTH_SHORT).show()
-                //TODO: Register car and go to DashboardActivity
+                if(selectedFuel != ""){
+                    val intent = Intent(this, SelectCarEuroCategoryActivity::class.java)
+                    intent.putExtra("selectedBrand", selectedBrand)
+                    intent.putExtra("selectedModel", selectedModel)
+                    intent.putExtra("selectedFuel", selectedFuel)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this, "No item selected!", Toast.LENGTH_SHORT).show()
+                }
             }else{
                 Toast.makeText(this, "No item selected!", Toast.LENGTH_SHORT).show()
             }
