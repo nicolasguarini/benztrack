@@ -43,8 +43,7 @@
             android:paddingStart="12dp"
             android:paddingEnd="4dp" />
 
-
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/btnModelNext"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -63,5 +62,13 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/montserrat_regular"
-        android:layout_marginRight="16dp" />
+        android:layout_marginRight="16dp"
+        android:visibility="gone"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarCarModels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"/>
 </LinearLayout>
