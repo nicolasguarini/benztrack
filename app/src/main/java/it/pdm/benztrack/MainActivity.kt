@@ -17,8 +17,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }else{
-            //Normal Launch
-            //TODO: Lanciare l'activity della dashboard
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+            finish()
         }
+
+
+
     }
 }

@@ -13,7 +13,7 @@ class SelectCarEuroCategoryActivity : AppCompatActivity() {
 
         val selectedBrand = intent.getStringExtra("selectedBrand").toString()
         val selectedModel = intent.getStringExtra("selectedModel").toString()
-        var selectedFuel = intent.getStringExtra("selectedFuel").toString()
+        val selectedFuel = intent.getStringExtra("selectedFuel").toString()
         var selectedEuro = ""
         val euroCategory = arrayOf(
             "Euro 6",
@@ -39,17 +39,15 @@ class SelectCarEuroCategoryActivity : AppCompatActivity() {
             selectedEuro = adapterVIew.getItemAtPosition(position).toString()
         }
 
-        /*findViewById<Button>(R.id.btnEuroNext).setOnClickListener {
+        findViewById<Button>(R.id.btnEuroNext).setOnClickListener {
             if(selectedEuro != ""){
-                val intent = Intent(this, Activity::class.java)
-                intent.putExtra("selectedBrand", selectedBrand)
-                intent.putExtra("selectedModel", selectedModel)
-                intent.putExtra("selectedFuel", selectedFuel)
-                intent.putExtra("selectedEuro", selectedEuro)
+                //TODO: Register car to database
+                //TODO: Set firstStart = false
+                val intent = Intent(this, DashboardActivity::class.java)
                 startActivity(intent)
             }else{
                 Toast.makeText(this, "No item selected!", Toast.LENGTH_SHORT).show()
             }
-        }*/
+        }
     }
 }

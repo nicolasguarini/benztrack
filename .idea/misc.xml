@@ -10,16 +10,16 @@
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_baseline_electric_car_24.xml" value="0.3495" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_baseline_local_gas_station_24.xml" value="0.2515" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_search.xml" value="0.3495" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_dashboard.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_brand.xml" value="0.33" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_euro_category.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_fuel_type.xml" value="0.25" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_model.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_welcome.xml" value="0.1762917933130699" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2525" />
         <entry key="app/src/main/res/drawable/ic_search_lens.xml" value="0.2525" />
         <entry key="app/src/main/res/layout/activity_select_car_brand.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_select_car_euro_category.xml" value="0.28072916666666664" />
-        <entry key="app/src/main/res/layout/activity_select_car_fuel_type.xml" value="0.20878623188405798" />
         <entry key="app/src/main/res/layout/activity_select_car_model.xml" value="0.2758152173913043" />
         <entry key="app/src/main/res/layout/activity_select_car_producer.xml" value="0.2758152173913043" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.20878623188405798" />
