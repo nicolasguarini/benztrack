@@ -12,6 +12,7 @@
     <color name="white">#FFFFFF</color>
     <color name="lightgray_bg">#F1F1F1</color>
     <color name="greengasoil">#59AF4E</color>
-    <color name="greenlist">#A7FB9C</color>
-    <color name="orangecheck">#FFAE36</color>
+    <color name="greenlist">#37E4B0</color>
+    <color name="orangecheck">#FF885C</color>
+    <color name="pinkcar_repair">#A36BFF</color>
 </resources>
