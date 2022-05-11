@@ -1,59 +1,78 @@
 package it.pdm.benztrack
 
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.formatter.PercentFormatter
+import com.github.mikephil.charting.utils.ColorTemplate
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var pieChart: PieChart
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setupPieChart()
+        setPieChartData()
+    }
+
+    private fun setupPieChart(){
+        pieChart = requireView().findViewById(R.id.homePieChart)
+        pieChart.setUsePercentValues(true)
+        pieChart.description.isEnabled = false
+        pieChart.isDrawHoleEnabled = true
+        pieChart.setHoleColor(Color.WHITE)
+        pieChart.holeRadius = 58f
+        pieChart.centerText = "€52,43\nUltimi 7 giorni"
+        pieChart.setDrawCenterText(true)
+        pieChart.setEntryLabelColor(R.color.black)
+        pieChart.isHighlightPerTapEnabled = true;
+        pieChart.setEntryLabelColor(R.color.black)
+        pieChart.setEntryLabelTextSize(12f)
+
+        val l: Legend = pieChart.legend
+        l.textColor = R.color.black
+        l.verticalAlignment = Legend.LegendVerticalAlignment.TOP
+        l.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
+        l.orientation = Legend.LegendOrientation.VERTICAL
+        l.setDrawInside(false)
+        l.xEntrySpace = 7f
+        l.yEntrySpace = 0f
+        l.yOffset = 0f
+    }
+
+    private fun setPieChartData(){
+        val entries = ArrayList<PieEntry>()
+        entries.add(PieEntry(32f, "Manutenzione"))
+        entries.add(PieEntry(18f, "Assicurazione"))
+        entries.add(PieEntry(12f, "Bollo"))
+        entries.add(PieEntry(38f, "Carburante"))
+
+        val colors: ArrayList<Int> = ArrayList()
+        colors.add(Color.parseColor("#FF885C"))
+        colors.add(Color.parseColor("#A7FB9C"))
+        colors.add(Color.parseColor("#A36BFF"))
+        colors.add(ColorTemplate.getHoloBlue())
+
+        val set = PieDataSet(entries, "Spese Maggio 2022")
+        set.colors = colors
+        val data = PieData(set)
+        data.setValueTextSize(15f)
+        data.setValueFormatter(PercentFormatter(pieChart))
+        pieChart.data = data
+        pieChart.invalidate()
+
     }
 }

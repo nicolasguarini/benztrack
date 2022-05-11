@@ -3,15 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="32dp"
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/homePieChart"
+        android:layout_width="match_parent"
+        android:layout_height="590dp"
         android:layout_gravity="center"/>
 
 </FrameLayout>
