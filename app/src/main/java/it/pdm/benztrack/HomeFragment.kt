@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
         pieChart.setEntryLabelColor(R.color.black)
         pieChart.setEntryLabelTextSize(12f)
 
+        /*
         val l: Legend = pieChart.legend
         l.textColor = R.color.black
         l.verticalAlignment = Legend.LegendVerticalAlignment.TOP
@@ -51,6 +52,7 @@ class HomeFragment : Fragment() {
         l.xEntrySpace = 7f
         l.yEntrySpace = 0f
         l.yOffset = 0f
+         */
     }
 
     private fun setPieChartData(){

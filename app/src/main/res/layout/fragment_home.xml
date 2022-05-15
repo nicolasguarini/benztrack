@@ -1,14 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:orientation="vertical"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:letterSpacing="0.28"
+                android:text="CIAO, NICOLAS!"
+                android:textColor="@color/lightgray"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Mini Cooper S"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="26sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="icon_user"
+            android:layout_gravity="end" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QUESTO MESE HAI SPESO"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/lightgray"
+        android:letterSpacing="0.16"
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="€"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="19sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="85,10"
+            android:textSize="36sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:text="+12,4%"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textSize="18sp"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightgray"
+                android:fontFamily="@font/montserrat_semibold"
+                android:letterSpacing="0.16"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:text="HAI EMESSO"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="15"
+                    android:textSize="36sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="g di Co2"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:fontFamily="@font/montserrat_semibold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="56dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightgray"
+                android:fontFamily="@font/montserrat_semibold"
+                android:letterSpacing="0.16"
+                android:textSize="14sp"
+                android:layout_marginTop="16dp"
+                android:text="CONSUMO MEDIO"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1,2"
+                    android:textSize="36sp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/black"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="l/100km"
+                    android:textColor="@color/black"
+                    android:textSize="19sp"
+                    android:fontFamily="@font/montserrat_semibold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/homePieChart"
         android:layout_width="match_parent"
-        android:layout_height="590dp"
-        android:layout_gravity="center"/>
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp" />
 
-</FrameLayout>
+</LinearLayout>

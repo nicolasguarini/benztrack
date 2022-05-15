@@ -15,4 +15,5 @@
     <color name="greenlist">#37E4B0</color>
     <color name="orangecheck">#FF885C</color>
     <color name="pinkcar_repair">#A36BFF</color>
+    <color name="red">#FF0000</color>
 </resources>
