@@ -4,16 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationBarView
-import it.pdm.benztrack.databinding.ActivityMainBinding
 
 class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
         loadFragment(HomeFragment())
+        findViewById<FloatingActionButton>(R.id.fabAddExpense)
 
         findViewById<NavigationBarView>(R.id.bottomNav).setOnItemSelectedListener {
             when(it.itemId){

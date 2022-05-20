@@ -27,14 +27,14 @@
                 android:letterSpacing="0.28"
                 android:text="CIAO, NICOLAS!"
                 android:textColor="@color/lightgray"
-                android:textSize="12sp" />
+                android:textSize="11sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:text="Mini Cooper S"
                 android:fontFamily="@font/montserrat_semibold"
-                android:textSize="26sp"/>
+                android:textSize="24sp"/>
         </LinearLayout>
 
         <TextView
@@ -51,7 +51,7 @@
         android:fontFamily="@font/montserrat_semibold"
         android:textColor="@color/lightgray"
         android:letterSpacing="0.16"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:layout_marginTop="16dp"/>
 
     <LinearLayout
@@ -65,21 +65,21 @@
             android:textColor="@color/black"
             android:text="€"
             android:fontFamily="@font/montserrat_semibold"
-            android:textSize="19sp"/>
+            android:textSize="18sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:fontFamily="@font/montserrat_semibold"
             android:text="85,10"
-            android:textSize="36sp"/>
+            android:textSize="32sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/red"
             android:text="+12,4%"
             android:fontFamily="@font/montserrat_semibold"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_marginLeft="12dp"/>
     </LinearLayout>
 
@@ -97,7 +97,7 @@
                 android:textColor="@color/lightgray"
                 android:fontFamily="@font/montserrat_semibold"
                 android:letterSpacing="0.16"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:layout_marginTop="16dp"
                 android:text="HAI EMESSO"/>
 
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="15"
-                    android:textSize="36sp"
+                    android:textSize="32sp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:textColor="@color/black"/>
                 <TextView
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:text="g di Co2"
                     android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textSize="18sp"
                     android:fontFamily="@font/montserrat_semibold"/>
             </LinearLayout>
 
@@ -134,7 +134,7 @@
                 android:textColor="@color/lightgray"
                 android:fontFamily="@font/montserrat_semibold"
                 android:letterSpacing="0.16"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 android:layout_marginTop="16dp"
                 android:text="CONSUMO MEDIO"/>
 
@@ -146,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1,2"
-                    android:textSize="36sp"
+                    android:textSize="32sp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:textColor="@color/black"/>
                 <TextView
@@ -154,7 +154,7 @@
                     android:layout_height="wrap_content"
                     android:text="l/100km"
                     android:textColor="@color/black"
-                    android:textSize="19sp"
+                    android:textSize="18sp"
                     android:fontFamily="@font/montserrat_semibold"/>
             </LinearLayout>
         </LinearLayout>
@@ -164,17 +164,17 @@
         android:visibility="visible"
         android:id="@+id/homePieChart"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:layout_gravity="center"
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="22dp" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:visibility="gone"
         android:id="@+id/homeLineChart"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="280dp"
         android:layout_gravity="center"
-        android:layout_marginTop="28dp" />
+        android:layout_marginTop="22dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
