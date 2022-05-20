@@ -161,10 +161,44 @@
     </LinearLayout>
 
     <com.github.mikephil.charting.charts.PieChart
+        android:visibility="visible"
         android:id="@+id/homePieChart"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_gravity="center"
         android:layout_marginTop="28dp" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:visibility="gone"
+        android:id="@+id/homeLineChart"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/btnDistribution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Distribuzione"
+            android:layout_gravity="center"
+            android:layout_marginRight="12dp"
+            />
+
+        <Button
+            android:id="@+id/btnTrend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Andamento"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
 
 </LinearLayout>
