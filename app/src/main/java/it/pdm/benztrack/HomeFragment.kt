@@ -17,7 +17,6 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.Utils
 
-
 class HomeFragment : Fragment() {
     private lateinit var pieChart: PieChart
     private lateinit var lineChart: LineChart
