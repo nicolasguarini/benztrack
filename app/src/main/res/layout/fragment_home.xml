@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -166,7 +167,7 @@
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:layout_gravity="center"
-        android:layout_marginTop="22dp" />
+        android:layout_marginTop="12dp" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:visibility="gone"
@@ -174,23 +175,32 @@
         android:layout_width="match_parent"
         android:layout_height="280dp"
         android:layout_gravity="center"
-        android:layout_marginTop="22dp" />
+        android:layout_marginTop="12dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="12dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
         <Button
             android:id="@+id/btnDistribution"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Distribuzione"
             android:layout_gravity="center"
-            android:layout_marginRight="12dp"
-            />
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/gray_bg"
+            android:drawableStart="@drawable/ic_ant_design_home_outlined"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Distribuzione"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:letterSpacing="0.02"
+            android:stateListAnimator="@null"
+            app:icon="@drawable/ic_ant_design_home_outlined"
+            app:iconTint="@color/black" />
 
         <Button
             android:id="@+id/btnTrend"
@@ -198,7 +208,15 @@
             android:layout_height="wrap_content"
             android:text="Andamento"
             android:layout_gravity="center"
-            android:layout_marginLeft="12dp"/>
+            android:textAllCaps="false"
+            android:layout_marginStart="6dp"
+            android:backgroundTint="@color/white"
+            android:stateListAnimator="@null"
+            android:letterSpacing="0.02"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            app:icon="@drawable/ic_ant_design_line_chart_outlined"
+            app:iconTint="@color/black"/>
     </LinearLayout>
 
     <ListView

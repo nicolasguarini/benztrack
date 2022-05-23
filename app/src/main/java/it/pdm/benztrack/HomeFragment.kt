@@ -9,8 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ListView
+import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
+import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.*
@@ -18,6 +21,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.Utils
+import com.google.android.material.button.MaterialButton
 
 class HomeFragment : Fragment() {
     private lateinit var pieChart: PieChart
@@ -25,6 +29,8 @@ class HomeFragment : Fragment() {
     private lateinit var listView: ListView
     private var arrayList: ArrayList<Expense> = ArrayList()
     private var adapter: CustomAdapter? = null
+    private lateinit var btnPieChart: MaterialButton
+    private lateinit var btnLineChart: MaterialButton
     private lateinit var requiredView: View
     private var selectedChart = "PIE"
 
@@ -38,23 +44,43 @@ class HomeFragment : Fragment() {
         pieChart = requiredView.findViewById(R.id.homePieChart)
         lineChart = requiredView.findViewById(R.id.homeLineChart)
         listView = requiredView.findViewById(R.id.lvLastExpenses)
+        btnPieChart = requiredView.findViewById(R.id.btnDistribution)
+        btnLineChart = requiredView.findViewById(R.id.btnTrend)
 
         setupListView()
         setupPieChart()
         setupLineChart()
 
-        requiredView.findViewById<Button>(R.id.btnDistribution).setOnClickListener {
+        btnPieChart.setOnClickListener {
             if(selectedChart != "PIE"){
                 pieChart.visibility = View.VISIBLE
                 lineChart.visibility = View.GONE
+
+                btnPieChart.setBackgroundColor(getColor(requireContext(), R.color.gray_bg))
+                btnPieChart.setTextColor(getColor(requireContext(), R.color.black))
+                btnPieChart.setIconTintResource(R.color.black)
+
+                btnLineChart.setBackgroundColor(getColor(requireContext(), R.color.white))
+                btnLineChart.setTextColor(getColor(requireContext(), R.color.lightgray))
+                btnLineChart.setIconTintResource(R.color.lightgray)
+
                 selectedChart = "PIE"
             }
         }
 
-        requireView().findViewById<Button>(R.id.btnTrend).setOnClickListener {
+        btnLineChart.setOnClickListener {
             if(selectedChart != "LINE"){
                 pieChart.visibility = View.GONE
                 lineChart.visibility = View.VISIBLE
+
+                btnLineChart.setBackgroundColor(getColor(requireContext(), R.color.gray_bg))
+                btnLineChart.setTextColor(getColor(requireContext(), R.color.black))
+                btnLineChart.setIconTintResource(R.color.black)
+
+                btnPieChart.setBackgroundColor(getColor(requireContext(), R.color.white))
+                btnPieChart.setTextColor(getColor(requireContext(), R.color.lightgray))
+                btnPieChart.setIconTintResource(R.color.lightgray)
+
                 selectedChart = "LINE"
             }
         }
@@ -81,14 +107,15 @@ class HomeFragment : Fragment() {
         pieChart.description.isEnabled = false
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
-        pieChart.holeRadius = 58f
-        pieChart.centerText = "€52,43\nUltimi 7 giorni"
+        pieChart.holeRadius = 48f
+        pieChart.centerText = "Maggio 2022"
+        pieChart.setCenterTextSize(16f)
         pieChart.setDrawCenterText(true)
         pieChart.setEntryLabelColor(R.color.black)
         pieChart.isHighlightPerTapEnabled = true
         pieChart.setEntryLabelColor(R.color.black)
-        pieChart.setEntryLabelTextSize(12f)
-
+        pieChart.setEntryLabelTextSize(14f)
+        pieChart.legend.isEnabled = false
         /*
         val l: Legend = pieChart.legend
         l.textColor = R.color.black
@@ -114,13 +141,15 @@ class HomeFragment : Fragment() {
         colors.add(Color.parseColor("#A36BFF"))
         colors.add(ColorTemplate.getHoloBlue())
 
-        val set = PieDataSet(entries, "Spese Maggio 2022")
+        val set = PieDataSet(entries, "")
         set.colors = colors
         val data = PieData(set)
         data.setValueTextSize(15f)
         data.setValueFormatter(PercentFormatter(pieChart))
         pieChart.data = data
         pieChart.invalidate()
+
+        pieChart.animateY(1400, Easing.EaseInOutQuad)
     }
 
     private fun setupLineChart(){
