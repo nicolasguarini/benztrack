@@ -3,10 +3,12 @@ package it.pdm.benztrack
 import android.graphics.Color
 import android.graphics.DashPathEffect
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ListView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.charts.LineChart
@@ -20,7 +22,9 @@ import com.github.mikephil.charting.utils.Utils
 class HomeFragment : Fragment() {
     private lateinit var pieChart: PieChart
     private lateinit var lineChart: LineChart
-
+    private lateinit var listView: ListView
+    private var arrayList: ArrayList<Expense> = ArrayList()
+    private var adapter: CustomAdapter? = null
     private lateinit var requiredView: View
     private var selectedChart = "PIE"
 
@@ -30,11 +34,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         requiredView = requireView()
         pieChart = requiredView.findViewById(R.id.homePieChart)
         lineChart = requiredView.findViewById(R.id.homeLineChart)
+        listView = requiredView.findViewById(R.id.lvLastExpenses)
 
+        setupListView()
         setupPieChart()
         setupLineChart()
 
@@ -52,6 +57,22 @@ class HomeFragment : Fragment() {
                 lineChart.visibility = View.VISIBLE
                 selectedChart = "LINE"
             }
+        }
+    }
+
+    private fun setupListView(){
+        arrayList.add(Expense(R.drawable.ic_tabler_engine, "Cambiio olio", 45.00))
+        arrayList.add(Expense(R.drawable.ic_green_local_gas_station_for_list, "Rifornimento", 98.00))
+        arrayList.add(Expense(R.drawable.ic_bi_shield_check, "Assicurazione RCA 2022", 490.00))
+        arrayList.add(Expense(R.drawable.ic_green_local_gas_station_for_list, "Rifornimento", 20.00))
+        arrayList.add(Expense(R.drawable.ic_green_local_gas_station_for_list, "Rifornimento", 15.00))
+
+        adapter = CustomAdapter(requireContext(), arrayList)
+        listView.adapter = adapter
+
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val item = parent.getItemAtPosition(position)
+            Log.d("ITEM CLICKED", item.toString())
         }
     }
 

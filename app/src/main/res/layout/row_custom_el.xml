@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/el_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_bi_shield_check"
+        android:minWidth="24dp"
+        android:minHeight="24dp"
+        android:maxHeight="24dp"
+        android:maxWidth="24dp"
+        />
+
+    <TextView
+        android:id="@+id/el_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:text="Carburante"
+        android:fontFamily="@font/montserrat_semibold"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="€"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/el_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="90"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        />
+
+
+</LinearLayout>

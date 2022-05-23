@@ -201,4 +201,9 @@
             android:layout_marginLeft="12dp"/>
     </LinearLayout>
 
+    <ListView
+        android:id="@+id/lvLastExpenses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>

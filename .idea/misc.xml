@@ -7,6 +7,7 @@
         <entry key="..\:/Applicazioni/benztrack/app/src/main/res/layout/activity_welcome.xml" value="0.358695652173913" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.262" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/circle_button.xml" value="0.262" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/custom_row_el.xml" value="0.262" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/empty_divider.xml" value="0.3475" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_ant_design_home_outlined.xml" value="0.12" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_ant_design_line_chart_outlined.xml" value="0.12" />
@@ -30,6 +31,7 @@
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/fragment_expense_list.xml" value="0.2858974358974359" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/row.xml" value="0.2722222222222222" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/row_custom_el.xml" value="0.33" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/menu/bottom_nav_menu.xml" value="0.29743589743589743" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2525" />
         <entry key="app/src/main/res/drawable/ic_search_lens.xml" value="0.2525" />
