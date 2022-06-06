@@ -27,11 +27,73 @@
         app:menu="@menu/bottom_nav_menu" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddRefuel"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:contentDescription="@string/fab_add_expense"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_local_gas_station_24"
+        app:backgroundTint="@color/greengasoil"
+        app:layout_constraintBottom_toTopOf="@+id/fabAddMaintenance"
+        app:layout_constraintEnd_toEndOf="@+id/fabAddMaintenance"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddMaintenance"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:contentDescription="@string/fab_add_expense"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_tabler_engine"
+        app:backgroundTint="@color/purple"
+        app:layout_constraintBottom_toTopOf="@+id/fabAddInsurance"
+        app:layout_constraintEnd_toEndOf="@+id/fabAddInsurance"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddInsurance"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:contentDescription="@string/fab_add_expense"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_bi_shield_check"
+        app:backgroundTint="@color/orangecheck"
+        app:layout_constraintBottom_toTopOf="@+id/fabAddTax"
+        app:layout_constraintEnd_toEndOf="@+id/fabAddTax"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddTax"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:contentDescription="@string/fab_add_expense"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_baseline_article_24"
+        app:backgroundTint="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/fabAddExpense"
+        app:layout_constraintEnd_toEndOf="@+id/fabAddExpense"
+        app:tint="@color/white" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddExpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
+        android:clickable="true"
+        android:focusable="true"
         android:contentDescription="@string/fab_add_expense"
         app:backgroundTint="@color/black"
         app:tint="@color/white"
