@@ -38,4 +38,18 @@
     <string name="hint_tax_title">Ex: Bollo</string>
     <string name="label_add_tax">Aggiungi tassa</string>
     <string name="label_tax_title">Nome tassa</string>
+    <string name="label_welcome_home">CIAO, NICOLAS!</string>
+    <string name="label_car_name">Mini Cooper S</string>
+    <string name="label_total_spent_home">QUESTO MESE HAI SPESO</string>
+    <string name="euro">€</string>
+    <string name="sample_spent">85,10</string>
+    <string name="sample_percent">+12,4%</string>
+    <string name="label_emitted_home">HAI EMESSO</string>
+    <string name="sample_emitted">15</string>
+    <string name="g">g di Co2</string>
+    <string name="label_avg_consumption">CONSUMO MEDIO</string>
+    <string name="sample_consumption_home">1,2</string>
+    <string name="l_100km">l/100km</string>
+    <string name="distribution">Distribuzione</string>
+    <string name="trend">Andamento</string>
 </resources>

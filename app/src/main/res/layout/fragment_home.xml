@@ -16,7 +16,7 @@
         android:layout_marginTop="12dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_weight="1">
@@ -26,14 +26,15 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_semibold"
                 android:letterSpacing="0.28"
-                android:text="CIAO, NICOLAS!"
+                android:text="@string/label_welcome_home"
+                android:textAllCaps="true"
                 android:textColor="@color/lightgray"
                 android:textSize="11sp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:text="Mini Cooper S"
+                android:text="@string/label_car_name"
                 android:fontFamily="@font/montserrat_semibold"
                 android:textSize="24sp"/>
         </LinearLayout>
@@ -48,7 +49,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="QUESTO MESE HAI SPESO"
+        android:text="@string/label_total_spent_home"
         android:fontFamily="@font/montserrat_semibold"
         android:textColor="@color/lightgray"
         android:letterSpacing="0.16"
@@ -64,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
-            android:text="€"
+            android:text="@string/euro"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="18sp"/>
         <TextView
@@ -72,16 +73,16 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="85,10"
+            android:text="@string/sample_spent"
             android:textSize="32sp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/red"
-            android:text="+12,4%"
+            android:text="@string/sample_percent"
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="16sp"
-            android:layout_marginLeft="12dp"/>
+            android:layout_marginStart="12dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -100,7 +101,7 @@
                 android:letterSpacing="0.16"
                 android:textSize="12sp"
                 android:layout_marginTop="16dp"
-                android:text="HAI EMESSO"/>
+                android:text="@string/label_emitted_home"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -109,14 +110,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="15"
+                    android:text="@string/sample_emitted"
                     android:textSize="32sp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:textColor="@color/black"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="g di Co2"
+                    android:text="@string/g"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:fontFamily="@font/montserrat_semibold"/>
@@ -128,7 +129,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="56dp">
+            android:layout_marginStart="56dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,7 +138,7 @@
                 android:letterSpacing="0.16"
                 android:textSize="12sp"
                 android:layout_marginTop="16dp"
-                android:text="CONSUMO MEDIO"/>
+                android:text="@string/label_avg_consumption"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -146,14 +147,14 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1,2"
+                    android:text="@string/sample_consumption_home"
                     android:textSize="32sp"
                     android:fontFamily="@font/montserrat_semibold"
                     android:textColor="@color/black"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="l/100km"
+                    android:text="@string/l_100km"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:fontFamily="@font/montserrat_semibold"/>
@@ -194,7 +195,7 @@
             android:backgroundTint="@color/gray_bg"
             android:drawableStart="@drawable/ic_ant_design_home_outlined"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="Distribuzione"
+            android:text="@string/distribution"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:letterSpacing="0.02"
@@ -206,7 +207,7 @@
             android:id="@+id/btnTrend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Andamento"
+            android:text="@string/trend"
             android:layout_gravity="center"
             android:textAllCaps="false"
             android:layout_marginStart="6dp"
