@@ -1,5 +1,6 @@
 package it.pdm.benztrack
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -51,19 +52,19 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         fabAddMaintenance.setOnClickListener{
-            Toast.makeText(this, "FAB Clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, AddMaintenanceActivity::class.java))
         }
 
         fabAddRefuel.setOnClickListener {
-            Toast.makeText(this, "FAB Clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, AddRefuelActivity::class.java))
         }
 
         fabAddTax.setOnClickListener{
-            Toast.makeText(this, "FAB Clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, AddTaxActivity::class.java))
         }
 
         fabAddInsurance.setOnClickListener {
-            Toast.makeText(this, "FAB Clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, AddInsuranceActivity::class.java))
         }
     }
 

@@ -15,4 +15,27 @@
     <string name="benzina">Benzina</string>
     <string name="ibrida">Ibrida</string>
     <string name="fab_add_expense">Aggiungi spesa</string>
+    <string name="btn_registra">Registra</string>
+    <string name="hint_km">Ex: 49556 km</string>
+    <string name="label_total_km">Km totali dell\'auto</string>
+    <string name="hint_total_spent">Ex: 30 €</string>
+    <string name="label_total_spent">Totale speso</string>
+    <string name="label_price_per_liter">Prezzo al litro</string>
+    <string name="hint_price_per_liter">Ex: 1,96 €/l</string>
+    <string name="label_add_refuel">Aggiungi rifornimento</string>
+    <string name="hint_insurance_year">Ex: 2022</string>
+    <string name="label_insurance_year">Anno</string>
+    <string name="label_add_insurance">Aggiungi assicurazione</string>
+    <string name="label_optional_details">Descrizione aggiuntiva</string>
+    <string name="hint_optional_description">Inserisci qui delle note aggiuntive</string>
+    <string name="label_optional_description">Note aggiuntive</string>
+    <string name="hint_insurance_price">Ex: 290 €</string>
+    <string name="label_add_maintenance">Aggiungi manutenzione</string>
+    <string name="label_title_maintenance">Nome intervento</string>
+    <string name="hint_title_maintenance">Che intervento è stato fatto?</string>
+    <string name="etInsDate">Ex: 07/06/2022</string>
+    <string name="label_date">Data (default: oggi)</string>
+    <string name="hint_tax_title">Ex: Bollo</string>
+    <string name="label_add_tax">Aggiungi tassa</string>
+    <string name="label_tax_title">Nome tassa</string>
 </resources>

@@ -21,6 +21,11 @@
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_search.xml" value="0.3495" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_tabler_engine.xml" value="0.262" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/rounded_edittext.xml" value="0.262" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/rounded_textarea.xml" value="0.241" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_insurance.xml" value="0.33" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_maintenance.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_refuel.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_tax.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_dashboard.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_brand.xml" value="0.33" />
