@@ -7,10 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ListView
-import androidx.annotation.ColorInt
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.animation.Easing
@@ -22,17 +19,22 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.Utils
 import com.google.android.material.button.MaterialButton
+import it.pdm.benztrack.data.AppDatabase
+import it.pdm.benztrack.data.ExpenseDao
+import it.pdm.benztrack.data.ExpenseView
 
 class HomeFragment : Fragment() {
     private lateinit var pieChart: PieChart
     private lateinit var lineChart: LineChart
     private lateinit var listView: ListView
-    private var arrayList: ArrayList<Expense> = ArrayList()
+    private var arrayList: ArrayList<ExpenseView> = ArrayList()
     private var adapter: CustomAdapter? = null
     private lateinit var btnPieChart: MaterialButton
     private lateinit var btnLineChart: MaterialButton
     private lateinit var requiredView: View
     private var selectedChart = "PIE"
+    private lateinit var db: AppDatabase
+    private lateinit var expenseDao: ExpenseDao
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
@@ -46,6 +48,8 @@ class HomeFragment : Fragment() {
         listView = requiredView.findViewById(R.id.lvLastExpenses)
         btnPieChart = requiredView.findViewById(R.id.btnDistribution)
         btnLineChart = requiredView.findViewById(R.id.btnTrend)
+        db = AppDatabase.getDatabase(this.requireContext())
+        expenseDao = db.expenseDao()
 
         setupListView()
         setupPieChart()
@@ -87,19 +91,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupListView(){
-        arrayList.add(Expense(R.drawable.ic_tabler_engine, "Cambiio olio", 45.00))
-        arrayList.add(Expense(R.drawable.ic_green_local_gas_station_for_list, "Rifornimento", 98.00))
-        arrayList.add(Expense(R.drawable.ic_bi_shield_check, "Assicurazione RCA 2022", 490.00))
-        arrayList.add(Expense(R.drawable.ic_green_local_gas_station_for_list, "Rifornimento", 20.00))
-        arrayList.add(Expense(R.drawable.ic_green_local_gas_station_for_list, "Rifornimento", 15.00))
+        Thread{
+            val expensesList = expenseDao.getAll()
+            for(i in expensesList){
+                Log.d("DB RESULT", i.toString())
 
-        adapter = CustomAdapter(requireContext(), arrayList)
-        listView.adapter = adapter
+                val iconId = when(i.type){
+                    "REFUEL" -> R.drawable.ic_green_local_gas_station_for_list
+                    "MAINTENANCE" -> R.drawable.ic_tabler_engine
+                    "TAX" -> R.drawable.ic_baseline_article_24
+                    else -> R.drawable.ic_bi_shield_check
+                }
 
-        listView.setOnItemClickListener { parent, view, position, id ->
-            val item = parent.getItemAtPosition(position)
-            Log.d("ITEM CLICKED", item.toString())
-        }
+                arrayList.add(ExpenseView(i.expenseId, iconId, i.title, i.spent))
+            }
+
+            adapter = CustomAdapter(requireContext(), arrayList)
+            listView.adapter = adapter
+
+            listView.setOnItemClickListener { parent, view, position, id ->
+                val item = parent.getItemAtPosition(position)
+                Log.d("ITEM CLICKED", item.toString())
+            }
+        }.start()
+
+
     }
 
     private fun setupPieChart(){
@@ -116,17 +132,6 @@ class HomeFragment : Fragment() {
         pieChart.setEntryLabelColor(R.color.black)
         pieChart.setEntryLabelTextSize(14f)
         pieChart.legend.isEnabled = false
-        /*
-        val l: Legend = pieChart.legend
-        l.textColor = R.color.black
-        l.verticalAlignment = Legend.LegendVerticalAlignment.TOP
-        l.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
-        l.orientation = Legend.LegendOrientation.VERTICAL
-        l.setDrawInside(false)
-        l.xEntrySpace = 7f
-        l.yEntrySpace = 0f
-        l.yOffset = 0f
-         */
 
         //TODO: fetch data from db
         val entries = ArrayList<PieEntry>()

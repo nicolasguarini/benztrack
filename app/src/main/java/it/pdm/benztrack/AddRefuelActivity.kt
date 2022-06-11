@@ -2,20 +2,28 @@ package it.pdm.benztrack
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import android.widget.EditText
 import android.widget.Toast
 import com.google.android.material.button.MaterialButton
+import it.pdm.benztrack.data.AppDatabase
+import it.pdm.benztrack.data.Expense
+import it.pdm.benztrack.data.ExpenseDao
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.Executors
 
 class AddRefuelActivity : AppCompatActivity() {
     private lateinit var etDate: EditText
     private lateinit var etTotalSpent: EditText
     private lateinit var etPricePerLiter: EditText
     private lateinit var etTotalKm: EditText
+    private lateinit var db: AppDatabase
+    private lateinit var expenseDao: ExpenseDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +36,15 @@ class AddRefuelActivity : AppCompatActivity() {
 
         etDate.transformIntoDatePicker(this, "dd/MM/yyyy", Date())
         findViewById<MaterialButton>(R.id.btnRefRegister).setOnClickListener { registerRefuel() }
+
+        db = AppDatabase.getDatabase(applicationContext)
+        expenseDao = db.expenseDao()
     }
 
     private fun registerRefuel() {
-        var date = etDate.text.toString()
-        if(date == ""){
-            date = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN).format(Date()).toString()
+        var dateString = etDate.text.toString()
+        if(dateString == ""){
+            dateString = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN).format(Date()).toString()
         }
 
         val pricePerLiter: Double = try{
@@ -57,10 +68,24 @@ class AddRefuelActivity : AppCompatActivity() {
         if (totalSpent < 0 || totalKm < 0 || pricePerLiter <= 0){
             Toast.makeText(this, "Errore", Toast.LENGTH_SHORT).show()
         }else{
-            Log.d("Reg", date)
-            Log.d("Reg", totalSpent.toString())
-            Log.d("Reg", totalKm.toString())
-            Log.d("Reg", pricePerLiter.toString())
+            val service = Executors.newSingleThreadExecutor()
+            val handler = Handler(Looper.getMainLooper())
+            service.execute {
+                val newExpense = Expense(
+                    0,
+                    "Rifornimento",
+                    "REFUEL",
+                    dateString,
+                    totalSpent,
+                    null,
+                    pricePerLiter
+                )
+                expenseDao.insertExpense(newExpense)
+                handler.post {
+                    startActivity(Intent(this, DashboardActivity::class.java))
+                    finish()
+                }
+            }
         }
     }
 

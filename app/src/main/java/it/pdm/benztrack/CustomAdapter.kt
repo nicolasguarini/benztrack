@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import it.pdm.benztrack.data.ExpenseView
 
-class CustomAdapter(private val context: Context, private val arrayList: java.util.ArrayList<Expense>) : BaseAdapter(){
+class CustomAdapter(private val context: Context, private val arrayList: java.util.ArrayList<ExpenseView>) : BaseAdapter(){
     private lateinit var icon: ImageView
     private lateinit var title: TextView
     private lateinit var price: TextView
@@ -34,7 +35,7 @@ class CustomAdapter(private val context: Context, private val arrayList: java.ut
 
         icon.setImageResource(arrayList[position].iconId)
         title.text = arrayList[position].title
-        price.text = arrayList[position].price.toString()
+        price.text = arrayList[position].spent.toString()
 
         return retView
     }
