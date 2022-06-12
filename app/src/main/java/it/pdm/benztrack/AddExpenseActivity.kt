@@ -3,6 +3,7 @@ package it.pdm.benztrack
 import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -38,11 +39,13 @@ class AddExpenseActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
     private lateinit var expenseDao: ExpenseDao
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
         expenseType = intent.getStringExtra("expenseType").toString()
+        sharedPreferences = getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
 
         tvTitleLabel = findViewById(R.id.addExpenseTitleLabel)
         tvTitleLabel.text = when(expenseType){
@@ -96,6 +99,7 @@ class AddExpenseActivity : AppCompatActivity() {
     private fun registerExpense() {
         lateinit var newExpense: Expense
         var errorFlag = false
+        val selectedCarId = sharedPreferences.getLong("selectedCarId", -1L)
 
         var dateString = etDate.text.toString()
         if(dateString == ""){
@@ -135,7 +139,8 @@ class AddExpenseActivity : AppCompatActivity() {
                         dateString,
                         totalSpent,
                         null,
-                        pricePerLiter
+                        pricePerLiter,
+                        selectedCarId
                     )
                 }
             }
@@ -153,7 +158,8 @@ class AddExpenseActivity : AppCompatActivity() {
                         dateString,
                         totalSpent,
                         description,
-                        null
+                        null,
+                        selectedCarId
                     )
                 }
             }
@@ -171,7 +177,8 @@ class AddExpenseActivity : AppCompatActivity() {
                         dateString,
                         totalSpent,
                         description,
-                        null
+                        null,
+                        selectedCarId
                     )
                 }
             }
@@ -194,7 +201,8 @@ class AddExpenseActivity : AppCompatActivity() {
                         dateString,
                         totalSpent,
                         description,
-                        null
+                        null,
+                        selectedCarId
                     )
                 }
             }
