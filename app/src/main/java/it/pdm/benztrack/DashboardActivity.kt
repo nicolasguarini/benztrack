@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationBarView
@@ -52,19 +51,19 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         fabAddMaintenance.setOnClickListener{
-            startActivity(Intent(this, AddMaintenanceActivity::class.java))
+            startActivity(Intent(this, AddExpenseActivity::class.java).putExtra("expenseType", "MAINTENANCE"))
         }
 
         fabAddRefuel.setOnClickListener {
-            startActivity(Intent(this, AddRefuelActivity::class.java))
+            startActivity(Intent(this, AddExpenseActivity::class.java).putExtra("expenseType", "REFUEL"))
         }
 
         fabAddTax.setOnClickListener{
-            startActivity(Intent(this, AddTaxActivity::class.java))
+            startActivity(Intent(this, AddExpenseActivity::class.java).putExtra("expenseType", "TAX"))
         }
 
         fabAddInsurance.setOnClickListener {
-            startActivity(Intent(this, AddInsuranceActivity::class.java))
+            startActivity(Intent(this, AddExpenseActivity::class.java).putExtra("expenseType", "INSURANCE"))
         }
     }
 

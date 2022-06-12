@@ -12,16 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BenzTrack">
         <activity
-            android:name=".AddTaxActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddMaintenanceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddInsuranceActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddRefuelActivity"
+            android:name=".AddExpenseActivity"
             android:exported="false" />
         <activity
             android:name=".DashboardActivity"

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddExpenseActivity"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <TextView
+        android:id="@+id/addExpenseTitleLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_add_refuel"
+        android:textSize="28sp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/black"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="22dp"
+        />
+
+    <!-- TAX TITLE -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/etTaxTitleContainer"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_tax_title"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp"
+            />
+
+        <EditText
+            android:id="@+id/etTaxTitle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/hint_tax_title"
+            android:inputType="text"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:autofillHints=""
+            />
+    </LinearLayout>
+
+    <!-- MAINTENANCE TITLE -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/etMaintenanceTitleContainer"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_title_maintenance"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/etMaintenanceTitle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/hint_title_maintenance"
+            android:inputType="text"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:autofillHints=""
+            />
+    </LinearLayout>
+
+    <!-- YEAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/etYearContainer"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_insurance_year"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/etYear"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/hint_insurance_year"
+            android:inputType="number"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:autofillHints=""
+            />
+    </LinearLayout>
+
+    <!-- PRICE PER LITER -->
+    <LinearLayout
+        android:id="@+id/etPricePerLiterContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_price_per_liter"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp"
+            />
+
+        <EditText
+            android:id="@+id/etRefPricePerLiter"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/hint_price_per_liter"
+            android:inputType="numberDecimal"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:autofillHints=""
+            />
+    </LinearLayout>
+
+    <!-- TOTAL SPENT -->
+    <LinearLayout
+        android:id="@+id/etTotalSpentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_total_spent"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp"
+            />
+
+        <EditText
+            android:id="@+id/etRefTotalSpent"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/hint_total_spent"
+            android:inputType="numberDecimal"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:autofillHints=""/>
+    </LinearLayout>
+
+    <!-- TOTAL KM -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/etTotalKmContainer">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_total_km"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp"
+            />
+
+        <EditText
+            android:id="@+id/etRefTotalKm"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/hint_km"
+            android:inputType="number"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:autofillHints=""
+            />
+    </LinearLayout>
+
+    <!-- DATE -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/etDateContainer">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_date"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp"
+            />
+
+        <EditText
+            android:id="@+id/etRefDate"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_edittext"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/etInsDate"
+            android:inputType="date"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:autofillHints=""
+            />
+    </LinearLayout>
+
+    <!-- OPTIONAL DESCRIPTION -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/etOptionalDescriptionContainer"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_optional_description"
+            android:textAllCaps="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textColor="@color/lightgray"
+            android:letterSpacing="0.16"
+            android:textSize="12sp"
+            />
+
+        <EditText
+            android:id="@+id/etOptionalDescription"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="top"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_textarea"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/hint_optional_description"
+            android:inputType="text|textMultiLine"
+            android:paddingStart="24dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="12dp"
+            android:textSize="17sp"
+            android:autofillHints=""
+            />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/btn_registra"
+        app:cornerRadius="100dp"
+        android:layout_marginTop="42dp"/>
+</LinearLayout>
