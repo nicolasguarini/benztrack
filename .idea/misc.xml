@@ -20,9 +20,10 @@
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_green_local_gas_station_for_list.xml" value="0.262" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_search.xml" value="0.3495" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/ic_tabler_engine.xml" value="0.262" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/rounded_corner.xml" value="0.2145" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/rounded_edittext.xml" value="0.262" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/drawable/rounded_textarea.xml" value="0.241" />
-        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_expense.xml" value="0.15213675213675212" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_expense.xml" value="0.5" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_insurance.xml" value="0.33" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_maintenance.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_add_refuel.xml" value="0.29743589743589743" />
@@ -33,6 +34,7 @@
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_euro_category.xml" value="0.29743589743589743" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_fuel_type.xml" value="0.25" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_select_car_model.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_single_expense.xml" value="0.25" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/activity_welcome.xml" value="0.1762917933130699" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/fragment_expense_list.xml" value="0.2858974358974359" />
         <entry key="..\:/Users/39334/Desktop/github/benztrack/app/src/main/res/layout/fragment_home.xml" value="0.33" />

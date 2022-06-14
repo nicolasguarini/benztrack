@@ -1,6 +1,7 @@
 package it.pdm.benztrack
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.DashPathEffect
@@ -125,8 +126,8 @@ class HomeFragment : Fragment() {
                     listView.adapter = adapter
 
                     listView.setOnItemClickListener { parent, view, position, id ->
-                        val item = parent.getItemAtPosition(position)
-                        Log.d("ITEM CLICKED", item.toString())
+                        val expenseId = arrayList[position].expenseId
+                        startActivity(Intent(this.requireContext(), SingleExpenseActivity::class.java).putExtra("expenseId", expenseId))
                     }
                 }
             }

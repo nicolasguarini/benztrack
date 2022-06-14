@@ -14,6 +14,12 @@ interface ExpenseDao {
     @Query("SELECT * FROM expenses WHERE carId == :carId")
     fun getExpensesFromCarId(carId: Long): List<Expense>
 
+    @Query("SELECT * FROM expenses WHERE carId == :carId AND expenseId == :expenseId")
+    fun getExpenseFromId(carId: Long, expenseId: Long): Expense
+
     @Delete
     fun delete(expense: Expense)
+
+    @Query("DELETE FROM expenses WHERE expenseId == :expenseId")
+    fun deleteFromId(expenseId: Long)
 }

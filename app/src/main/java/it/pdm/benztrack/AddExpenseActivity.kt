@@ -140,6 +140,7 @@ class AddExpenseActivity : AppCompatActivity() {
                         totalSpent,
                         null,
                         pricePerLiter,
+                        totalKm,
                         selectedCarId
                     )
                 }
@@ -159,6 +160,7 @@ class AddExpenseActivity : AppCompatActivity() {
                         totalSpent,
                         description,
                         null,
+                        null,
                         selectedCarId
                     )
                 }
@@ -177,6 +179,7 @@ class AddExpenseActivity : AppCompatActivity() {
                         dateString,
                         totalSpent,
                         description,
+                        null,
                         null,
                         selectedCarId
                     )
@@ -201,6 +204,7 @@ class AddExpenseActivity : AppCompatActivity() {
                         dateString,
                         totalSpent,
                         description,
+                        null,
                         null,
                         selectedCarId
                     )

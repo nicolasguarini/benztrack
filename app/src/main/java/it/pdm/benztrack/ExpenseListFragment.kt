@@ -67,8 +67,8 @@ class ExpenseListFragment : Fragment() {
                     listView.adapter = adapter
 
                     listView.setOnItemClickListener { parent, view, position, id ->
-                        val item = parent.getItemAtPosition(position)
-                        Log.d("ITEM CLICKED", item.toString())
+                        val expenseId = arrayList[position].expenseId
+                        startActivity(Intent(this.requireContext(), SingleExpenseActivity::class.java).putExtra("expenseId", expenseId))
                     }
                 }
             }
