@@ -72,6 +72,7 @@
             android:fontFamily="@font/montserrat_semibold"
             android:textSize="18sp"/>
         <TextView
+            android:id="@+id/tvSpentThisMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -79,6 +80,7 @@
             android:text="@string/sample_spent"
             android:textSize="32sp"/>
         <TextView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/red"

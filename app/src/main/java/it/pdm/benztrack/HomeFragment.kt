@@ -26,15 +26,14 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.Utils
 import com.google.android.material.button.MaterialButton
-import it.pdm.benztrack.data.AppDatabase
-import it.pdm.benztrack.data.Expense
-import it.pdm.benztrack.data.ExpenseDao
-import it.pdm.benztrack.data.ExpenseView
+import it.pdm.benztrack.data.*
 import java.util.concurrent.Executors
+import kotlin.collections.ArrayList
 
 class HomeFragment : Fragment() {
     private lateinit var tvWelcomeName: TextView
     private lateinit var tvCarName: TextView
+    private lateinit var tvSpentThisMonth: TextView
 
     private lateinit var pieChart: PieChart
     private lateinit var lineChart: LineChart
@@ -61,6 +60,7 @@ class HomeFragment : Fragment() {
 
         tvWelcomeName = requiredView.findViewById(R.id.tvWelcomeName)
         tvCarName = requiredView.findViewById(R.id.tvCarName)
+        tvSpentThisMonth = requiredView.findViewById(R.id.tvSpentThisMonth)
 
         pieChart = requiredView.findViewById(R.id.homePieChart)
         lineChart = requiredView.findViewById(R.id.homeLineChart)
@@ -72,7 +72,6 @@ class HomeFragment : Fragment() {
         sharedPreferences = this.requireContext().getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
 
         setupListView()
-        setupData()
         setupPieChart()
         setupLineChart()
 
@@ -111,16 +110,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun setupData() {
-        val userName = sharedPreferences.getString("userName", "")
-        val carBrand = sharedPreferences.getString("selectedCarBrand", "")
-        val carModel = sharedPreferences.getString("selectedCarModel", "")
-
-        tvWelcomeName.text = getString(R.string.welcome_user, userName)
-        tvCarName.text = getString(R.string.car_label, carBrand, carModel)
-
-    }
-
     private fun setupListView(){
         val selectedCarId = sharedPreferences.getLong("selectedCarId", -1L)
 
@@ -145,6 +134,7 @@ class HomeFragment : Fragment() {
 
                 handler.post {
                     arrayList.reverse()
+                    setupUIData()
                     adapter = CustomAdapter(requireContext(), arrayList)
                     listView.adapter = adapter
 
@@ -157,6 +147,16 @@ class HomeFragment : Fragment() {
         }else{
             Toast.makeText(this.requireContext(), "DB ERROR: cancella i dati dell'app o reinstallala", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun setupUIData() {
+        val userName = sharedPreferences.getString("userName", "")
+        val carBrand = sharedPreferences.getString("selectedCarBrand", "")
+        val carModel = sharedPreferences.getString("selectedCarModel", "")
+        tvWelcomeName.text = getString(R.string.welcome_user, userName)
+        tvCarName.text = getString(R.string.car_label, carBrand, carModel)
+
+        tvSpentThisMonth.text = Utilities.getTotalSpentThisMonth(expensesList).toString()
     }
 
     private fun setupPieChart(){
@@ -205,15 +205,6 @@ class HomeFragment : Fragment() {
         lineChart.setPinchZoom(true)
 
         val values = ArrayList<Entry>()
-        values.add(Entry(1f, 50f))
-        values.add(Entry(2f, 75f))
-        values.add(Entry(3f, 75f))
-        values.add(Entry(4f, 90f))
-        values.add(Entry(5f, 90f))
-        values.add(Entry(6f, 115f))
-        values.add(Entry(7f, 115f))
-        values.add(Entry(8f, 140f))
-        values.add(Entry(9f, 155f))
         values.add(Entry(10f, 155f))
         values.add(Entry(11f, 155f))
         values.add(Entry(12f, 155f))
@@ -232,25 +223,12 @@ class HomeFragment : Fragment() {
         } else {
             set1 = LineDataSet(values, "Andamento spese Maggio 2022")
             set1.setDrawIcons(false)
-            set1.enableDashedLine(10f, 5f, 0f)
-            set1.enableDashedHighlightLine(10f, 5f, 0f)
             set1.color = Color.DKGRAY
             set1.setCircleColor(Color.DKGRAY)
-            set1.lineWidth = 1f
+            set1.lineWidth = 3f
+            set1.mode = LineDataSet.Mode.CUBIC_BEZIER
             set1.circleRadius = 3f
             set1.setDrawCircleHole(false)
-            set1.valueTextSize = 9f
-            set1.setDrawFilled(true)
-            set1.formLineWidth = 1f
-            set1.formLineDashEffect = DashPathEffect(floatArrayOf(10f, 5f), 0f)
-            set1.formSize = 15f
-            if (Utils.getSDKInt() >= 18) {
-                //val drawable = ContextCompat.getDrawable(this, R.drawable.fade_blue)
-                //set1.fillDrawable = drawable
-                set1.fillColor = Color.BLACK
-            } else {
-                set1.fillColor = Color.BLACK
-            }
             val dataSets: ArrayList<ILineDataSet> = ArrayList()
             dataSets.add(set1)
             val data = LineData(dataSets)
