@@ -113,6 +113,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/tvEmittedThisMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sample_emitted"
@@ -150,6 +151,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:id="@+id/tvAvgConsumptionThisMonth"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sample_consumption_home"
@@ -159,7 +161,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/l_100km"
+                    android:text="@string/km_l"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:fontFamily="@font/montserrat_semibold"/>

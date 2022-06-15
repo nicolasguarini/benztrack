@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.graphics.DashPathEffect
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -24,7 +23,6 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
-import com.github.mikephil.charting.utils.Utils
 import com.google.android.material.button.MaterialButton
 import it.pdm.benztrack.data.*
 import java.util.concurrent.Executors
@@ -34,6 +32,8 @@ class HomeFragment : Fragment() {
     private lateinit var tvWelcomeName: TextView
     private lateinit var tvCarName: TextView
     private lateinit var tvSpentThisMonth: TextView
+    private lateinit var tvEmittedThisMonth: TextView
+    private lateinit var tvAvgConsumptionThisMonth: TextView
 
     private lateinit var pieChart: PieChart
     private lateinit var lineChart: LineChart
@@ -61,6 +61,8 @@ class HomeFragment : Fragment() {
         tvWelcomeName = requiredView.findViewById(R.id.tvWelcomeName)
         tvCarName = requiredView.findViewById(R.id.tvCarName)
         tvSpentThisMonth = requiredView.findViewById(R.id.tvSpentThisMonth)
+        tvEmittedThisMonth = requiredView.findViewById(R.id.tvEmittedThisMonth)
+        tvAvgConsumptionThisMonth = requiredView.findViewById(R.id.tvAvgConsumptionThisMonth)
 
         pieChart = requiredView.findViewById(R.id.homePieChart)
         lineChart = requiredView.findViewById(R.id.homeLineChart)
@@ -153,10 +155,24 @@ class HomeFragment : Fragment() {
         val userName = sharedPreferences.getString("userName", "")
         val carBrand = sharedPreferences.getString("selectedCarBrand", "")
         val carModel = sharedPreferences.getString("selectedCarModel", "")
+        val fuelType = sharedPreferences.getString("selectedFuelType", "")!!
+        val euroCategory = sharedPreferences.getString("selectedEuroCategory", "")!!
+
         tvWelcomeName.text = getString(R.string.welcome_user, userName)
         tvCarName.text = getString(R.string.car_label, carBrand, carModel)
 
-        tvSpentThisMonth.text = Utilities.getTotalSpentThisMonth(expensesList).toString()
+        val spent = Utilities.getTotalSpentThisMonth(expensesList)
+        val emitted = Utilities.getEmittedThisMonth(expensesList, fuelType, euroCategory)
+        val consumption = Utilities.getAvgConsumption(expensesList)
+        tvSpentThisMonth.text = spent.toString()
+        tvEmittedThisMonth.text = emitted.toString()
+        tvAvgConsumptionThisMonth.text = consumption.toString()
+
+        sharedPreferences.edit()
+            .putFloat("spentThisMonth", spent.toFloat())
+            .putFloat("emittedThisMonth", emitted.toFloat())
+            .putFloat("consumptionThisMonth", consumption.toFloat())
+            .apply()
     }
 
     private fun setupPieChart(){

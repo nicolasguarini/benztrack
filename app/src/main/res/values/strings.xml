@@ -46,7 +46,7 @@
     <string name="sample_percent">+12,4%</string>
     <string name="label_emitted_home">HAI EMESSO</string>
     <string name="sample_emitted">15</string>
-    <string name="g">g di Co2</string>
+    <string name="g">g di CO</string>
     <string name="label_avg_consumption">CONSUMO MEDIO</string>
     <string name="sample_consumption_home">1,2</string>
     <string name="l_100km">l/100km</string>
@@ -66,4 +66,5 @@
     <string name="label_edit">modifica</string>
     <string name="welcome_user">Ciao, %1$s!</string>
     <string name="car_label">%1$s %2$s</string>
+    <string name="km_l">km/l</string>
 </resources>
