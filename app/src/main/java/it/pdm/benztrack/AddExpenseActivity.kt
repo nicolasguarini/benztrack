@@ -19,6 +19,7 @@ import java.util.concurrent.Executors
 
 class AddExpenseActivity : AppCompatActivity() {
     private lateinit var expenseType: String
+    private var expenseId = 0L
     private lateinit var tvTitleLabel: TextView
     private lateinit var llDescription: LinearLayout
     private lateinit var llPricePerLiter: LinearLayout
@@ -48,12 +49,6 @@ class AddExpenseActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
 
         tvTitleLabel = findViewById(R.id.addExpenseTitleLabel)
-        tvTitleLabel.text = when(expenseType){
-            "REFUEL" -> getString(R.string.label_add_refuel)
-            "TAX" -> getString(R.string.label_add_tax)
-            "MAINTENANCE" -> getString(R.string.label_add_maintenance)
-            else -> getString(R.string.label_add_insurance)
-        }
 
         llPricePerLiter = findViewById(R.id.etPricePerLiterContainer)
         llTotalKm = findViewById(R.id.etTotalKmContainer)
@@ -94,6 +89,52 @@ class AddExpenseActivity : AppCompatActivity() {
             "MAINTENANCE" -> llMaintenanceTitle.visibility = View.VISIBLE
             else -> llYear.visibility = View.VISIBLE
         }
+
+        val expenseIdExtra = intent.getLongExtra("expenseId", -1L)
+        val selectedCarId = sharedPreferences.getLong("selectedCarId", -1L)
+        if(expenseIdExtra != -1L){ //We are modifying an existing expense
+            expenseId = expenseIdExtra
+            tvTitleLabel.text = when(expenseType){
+                "REFUEL" -> "Modifica rifornimento"
+                "TAX" -> "Modifica tassa"
+                "MAINTENANCE" -> "Modifica manutenzione"
+                else -> "Modifica assicurazione"
+            }
+            
+            val service = Executors.newSingleThreadExecutor()
+            val handler = Handler(Looper.getMainLooper())
+            service.execute {
+                val expense = expenseDao.getExpenseFromId(selectedCarId, expenseIdExtra)
+                handler.post {
+                    etDate.setText(expense.date)
+                    etTotalSpent.setText(expense.spent.toString())
+                    etDescription.setText(expense.description)
+
+                    when(expense.type){
+                        "REFUEL" -> {
+                            etPricePerLiter.setText(expense.pricePerLiter.toString())
+                            etTotalKm.setText(expense.totalKm.toString())
+                        }
+                        "TAX" -> {
+                            etTaxTitle.setText(expense.title)
+                        }
+                        "MAINTENANCE" -> {
+                            etMaintenanceTitle.setText(expense.title)
+                        }
+                        else -> {
+                            etYear.setText(expense.title.split(' ')[1])
+                        }
+                    }
+                }
+            }
+        }else{
+            tvTitleLabel.text = when(expenseType){
+                "REFUEL" -> getString(R.string.label_add_refuel)
+                "TAX" -> getString(R.string.label_add_tax)
+                "MAINTENANCE" -> getString(R.string.label_add_maintenance)
+                else -> getString(R.string.label_add_insurance)
+            }
+        }
     }
 
     private fun registerExpense() {
@@ -133,7 +174,7 @@ class AddExpenseActivity : AppCompatActivity() {
                     errorFlag = true
                 }else {
                     newExpense = Expense(
-                        0,
+                        expenseId,
                         "Rifornimento",
                         expenseType,
                         dateString,
@@ -153,7 +194,7 @@ class AddExpenseActivity : AppCompatActivity() {
                     errorFlag = true
                 }else{
                     newExpense = Expense(
-                        0,
+                        expenseId,
                         title,
                         expenseType,
                         dateString,
@@ -173,7 +214,7 @@ class AddExpenseActivity : AppCompatActivity() {
                     errorFlag = true
                 }else{
                     newExpense = Expense(
-                        0,
+                        expenseId,
                         title,
                         expenseType,
                         dateString,
@@ -198,7 +239,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 }else{
                     val title = "Assicurazione $year"
                     newExpense = Expense(
-                        0,
+                        expenseId,
                         title,
                         expenseType,
                         dateString,

@@ -221,6 +221,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/btnSingleExpenseUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/label_edit"
@@ -232,6 +233,7 @@
         />
 
     <Button
+        android:id="@+id/btnSingleExpenseDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/delete_label"

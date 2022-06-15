@@ -122,6 +122,7 @@ class HomeFragment : Fragment() {
                 }
 
                 handler.post {
+                    arrayList.reverse()
                     adapter = CustomAdapter(requireContext(), arrayList)
                     listView.adapter = adapter
 

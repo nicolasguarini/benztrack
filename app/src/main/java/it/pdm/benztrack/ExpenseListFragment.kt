@@ -63,7 +63,8 @@ class ExpenseListFragment : Fragment() {
                 }
 
                 handler.post {
-                    adapter = CustomAdapter(requireContext() ,arrayList)
+                    arrayList.reverse()
+                    adapter = CustomAdapter(requireContext(), arrayList)
                     listView.adapter = adapter
 
                     listView.setOnItemClickListener { parent, view, position, id ->
