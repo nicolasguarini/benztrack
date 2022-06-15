@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getColor
 import androidx.fragment.app.Fragment
@@ -26,11 +27,15 @@ import com.github.mikephil.charting.utils.ColorTemplate
 import com.github.mikephil.charting.utils.Utils
 import com.google.android.material.button.MaterialButton
 import it.pdm.benztrack.data.AppDatabase
+import it.pdm.benztrack.data.Expense
 import it.pdm.benztrack.data.ExpenseDao
 import it.pdm.benztrack.data.ExpenseView
 import java.util.concurrent.Executors
 
 class HomeFragment : Fragment() {
+    private lateinit var tvWelcomeName: TextView
+    private lateinit var tvCarName: TextView
+
     private lateinit var pieChart: PieChart
     private lateinit var lineChart: LineChart
     private lateinit var listView: ListView
@@ -40,8 +45,10 @@ class HomeFragment : Fragment() {
     private lateinit var btnLineChart: MaterialButton
     private lateinit var requiredView: View
     private var selectedChart = "PIE"
+
     private lateinit var db: AppDatabase
     private lateinit var expenseDao: ExpenseDao
+    private lateinit var expensesList: List<Expense>
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -51,6 +58,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requiredView = requireView()
+
+        tvWelcomeName = requiredView.findViewById(R.id.tvWelcomeName)
+        tvCarName = requiredView.findViewById(R.id.tvCarName)
+
         pieChart = requiredView.findViewById(R.id.homePieChart)
         lineChart = requiredView.findViewById(R.id.homeLineChart)
         listView = requiredView.findViewById(R.id.lvLastExpenses)
@@ -61,6 +72,7 @@ class HomeFragment : Fragment() {
         sharedPreferences = this.requireContext().getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
 
         setupListView()
+        setupData()
         setupPieChart()
         setupLineChart()
 
@@ -99,6 +111,16 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun setupData() {
+        val userName = sharedPreferences.getString("userName", "")
+        val carBrand = sharedPreferences.getString("selectedCarBrand", "")
+        val carModel = sharedPreferences.getString("selectedCarModel", "")
+
+        tvWelcomeName.text = getString(R.string.welcome_user, userName)
+        tvCarName.text = getString(R.string.car_label, carBrand, carModel)
+
+    }
+
     private fun setupListView(){
         val selectedCarId = sharedPreferences.getLong("selectedCarId", -1L)
 
@@ -106,7 +128,7 @@ class HomeFragment : Fragment() {
             val service = Executors.newSingleThreadExecutor()
             val handler = Handler(Looper.getMainLooper())
             service.execute {
-                val expensesList = expenseDao.getExpensesFromCarId(selectedCarId)
+                expensesList = expenseDao.getExpensesFromCarId(selectedCarId)
                 for (i in expensesList) {
                     Log.d("DB RESULT", i.toString())
                     Log.d("SELECTED CAR", selectedCarId.toString())

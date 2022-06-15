@@ -64,4 +64,6 @@
     <string name="sample_description">Sostituzione paraurti posteriore in seguito al tamponamento subito in data 09/06/2022.</string>
     <string name="delete_label">ELIMINA</string>
     <string name="label_edit">modifica</string>
+    <string name="welcome_user">Ciao, %1$s!</string>
+    <string name="car_label">%1$s %2$s</string>
 </resources>
