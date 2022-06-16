@@ -281,8 +281,6 @@ class HomeFragment : Fragment() {
         for (e in thisMonthExpenses){
             val day = e.date.split('/')[0]
             spent += e.spent
-            Log.d("DAY", day)
-            Log.d("SPENT", spent.toString())
             entries.add(Entry(day.toFloat(), spent.toFloat()))
         }
 
