@@ -68,7 +68,7 @@ class Utilities {
             return ((percurred / litersUsed) * 10.0).roundToInt() / 10.0
         }
 
-        private fun getThisMonthExpenses(expenses: List<Expense>): List<Expense>{
+        fun getThisMonthExpenses(expenses: List<Expense>): List<Expense>{
             val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN).format(Date()).toString().split('/')
             return expenses.filter { e -> e.date.split('/')[1] == currentDate[1] && e.date.split('/')[2] == currentDate[2] }
         }

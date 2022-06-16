@@ -74,8 +74,6 @@ class HomeFragment : Fragment() {
         sharedPreferences = this.requireContext().getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
 
         setupListView()
-        setupPieChart()
-        setupLineChart()
 
         btnPieChart.setOnClickListener {
             if(selectedChart != "PIE"){
@@ -137,9 +135,11 @@ class HomeFragment : Fragment() {
                 handler.post {
                     arrayList.reverse()
                     setupUIData()
+                    setupPieChart()
+                    setupLineChart()
+
                     adapter = CustomAdapter(requireContext(), arrayList)
                     listView.adapter = adapter
-
                     listView.setOnItemClickListener { parent, view, position, id ->
                         val expenseId = arrayList[position].expenseId
                         startActivity(Intent(this.requireContext(), SingleExpenseActivity::class.java).putExtra("expenseId", expenseId))
@@ -190,17 +190,12 @@ class HomeFragment : Fragment() {
         pieChart.setEntryLabelTextSize(14f)
         pieChart.legend.isEnabled = false
 
-        //TODO: fetch data from db
-        val entries = ArrayList<PieEntry>()
-        entries.add(PieEntry(32f, "Manutenzione"))
-        entries.add(PieEntry(18f, "Assicurazione"))
-        entries.add(PieEntry(12f, "Bollo"))
-        entries.add(PieEntry(38f, "Carburante"))
+        val entries = getEntries()
 
         val colors: ArrayList<Int> = ArrayList()
-        colors.add(Color.parseColor("#FF885C"))
         colors.add(Color.parseColor("#A7FB9C"))
         colors.add(Color.parseColor("#A36BFF"))
+        colors.add(Color.parseColor("#FF885C"))
         colors.add(ColorTemplate.getHoloBlue())
 
         val set = PieDataSet(entries, "")
@@ -212,6 +207,32 @@ class HomeFragment : Fragment() {
         pieChart.invalidate()
 
         pieChart.animateY(1400, Easing.EaseInOutQuad)
+    }
+
+    private fun getEntries(): ArrayList<PieEntry> {
+        val entries = ArrayList<PieEntry>()
+        val thisMonthExpenses = Utilities.getThisMonthExpenses(expensesList)
+        var spentRefuel = 0.0
+        var spentInsurance = 0.0
+        var spentTax = 0.0
+        var spentMaintenance = 0.0
+
+        for(e in thisMonthExpenses){
+            when(e.type){
+                "REFUEL" -> spentRefuel += e.spent
+                "MAINTENANCE" -> spentMaintenance += e.spent
+                "TAX" -> spentTax += e.spent
+                else -> spentInsurance += e.spent
+            }
+        }
+
+        val total = spentRefuel + spentMaintenance + spentInsurance + spentTax
+        if(spentRefuel > 0.0) entries.add(PieEntry(((spentRefuel/total)*100).toFloat(), "Rifornimento"))
+        if(spentMaintenance > 0.0) entries.add(PieEntry(((spentMaintenance/total)*100).toFloat(), "Manutenzione"))
+        if(spentInsurance > 0.0) entries.add(PieEntry(((spentInsurance/total)*100).toFloat(), "Assicurazione"))
+        if(spentTax > 0.0) entries.add(PieEntry(((spentTax/total)*100).toFloat(), "Tasse"))
+
+        return entries
     }
 
     private fun setupLineChart(){
