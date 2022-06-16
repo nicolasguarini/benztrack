@@ -48,7 +48,7 @@ class ExpenseListFragment : Fragment() {
             val service = Executors.newSingleThreadExecutor()
             val handler = Handler(Looper.getMainLooper())
             service.execute {
-                val expensesList = expenseDao.getExpensesFromCarId(selectedCarId)
+                val expensesList = expenseDao.getExpensesFromCarId(selectedCarId).sortedBy { e -> e.date }
                 for(i in expensesList){
                     Log.d("DB RESULT", i.toString())
 

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.graphics.DashPathEffect
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -23,6 +24,7 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.github.mikephil.charting.utils.Utils
 import com.google.android.material.button.MaterialButton
 import it.pdm.benztrack.data.*
 import java.util.concurrent.Executors
@@ -117,7 +119,7 @@ class HomeFragment : Fragment() {
             val service = Executors.newSingleThreadExecutor()
             val handler = Handler(Looper.getMainLooper())
             service.execute {
-                expensesList = expenseDao.getExpensesFromCarId(selectedCarId)
+                expensesList = expenseDao.getExpensesFromCarId(selectedCarId).sortedBy { e -> e.date }
                 for (i in expensesList) {
                     Log.d("DB RESULT", i.toString())
                     Log.d("SELECTED CAR", selectedCarId.toString())
@@ -190,7 +192,7 @@ class HomeFragment : Fragment() {
         pieChart.setEntryLabelTextSize(14f)
         pieChart.legend.isEnabled = false
 
-        val entries = getEntries()
+        val entries = getPieEntries()
 
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#A7FB9C"))
@@ -209,7 +211,7 @@ class HomeFragment : Fragment() {
         pieChart.animateY(1400, Easing.EaseInOutQuad)
     }
 
-    private fun getEntries(): ArrayList<PieEntry> {
+    private fun getPieEntries(): ArrayList<PieEntry> {
         val entries = ArrayList<PieEntry>()
         val thisMonthExpenses = Utilities.getThisMonthExpenses(expensesList)
         var spentRefuel = 0.0
@@ -241,13 +243,7 @@ class HomeFragment : Fragment() {
         lineChart.setTouchEnabled(true)
         lineChart.setPinchZoom(true)
 
-        val values = ArrayList<Entry>()
-        values.add(Entry(10f, 155f))
-        values.add(Entry(11f, 155f))
-        values.add(Entry(12f, 155f))
-        values.add(Entry(13f, 180f))
-        values.add(Entry(14f, 180f))
-        values.add(Entry(15f, 200f))
+        val values = getLineEntries()
 
         val set1: LineDataSet
         if (lineChart.data != null &&
@@ -266,11 +262,30 @@ class HomeFragment : Fragment() {
             set1.mode = LineDataSet.Mode.CUBIC_BEZIER
             set1.circleRadius = 3f
             set1.setDrawCircleHole(false)
+            set1.valueTextSize = 9f
             val dataSets: ArrayList<ILineDataSet> = ArrayList()
             dataSets.add(set1)
             val data = LineData(dataSets)
             lineChart.data = data
+            lineChart.data.notifyDataChanged()
+            lineChart.notifyDataSetChanged()
+            lineChart.invalidate()
+        }
+    }
+
+    private fun getLineEntries(): List<Entry>{
+        val entries = ArrayList<Entry>()
+        var spent = 0.0
+        val thisMonthExpenses = Utilities.getThisMonthExpenses(expensesList)
+
+        for (e in thisMonthExpenses){
+            val day = e.date.split('/')[0]
+            spent += e.spent
+            Log.d("DAY", day)
+            Log.d("SPENT", spent.toString())
+            entries.add(Entry(day.toFloat(), spent.toFloat()))
         }
 
+        return entries
     }
 }
