@@ -163,9 +163,11 @@ class HomeFragment : Fragment() {
         tvWelcomeName.text = getString(R.string.welcome_user, userName)
         tvCarName.text = getString(R.string.car_label, carBrand, carModel)
 
-        val spent = Utilities.getTotalSpentThisMonth(expensesList)
-        val emitted = Utilities.getEmittedThisMonth(expensesList, fuelType, euroCategory)
-        val consumption = Utilities.getAvgConsumption(expensesList)
+        val thisMonthExpenses = Utilities.getThisMonthExpenses(expensesList)
+        val spent = Utilities.getTotalSpent(thisMonthExpenses)
+        val emitted = Utilities.getEmitted(thisMonthExpenses, fuelType, euroCategory)
+        val consumption = Utilities.getAvgConsumption(thisMonthExpenses)
+
         tvSpentThisMonth.text = spent.toString()
         tvEmittedThisMonth.text = emitted.toString()
         tvAvgConsumptionThisMonth.text = consumption.toString()
@@ -175,6 +177,14 @@ class HomeFragment : Fragment() {
             .putFloat("emittedThisMonth", emitted.toFloat())
             .putFloat("consumptionThisMonth", consumption.toFloat())
             .apply()
+
+        val prevMonthExpenses = Utilities.getPrevMonthExpenses(expensesList)
+        if(prevMonthExpenses.any { e -> e.type == "REFUEL" }){
+            val consumptionPrevMonth = Utilities.getAvgConsumption(prevMonthExpenses)
+            sharedPreferences.edit()
+                .putFloat("consumptionPrevMonth", consumptionPrevMonth.toFloat())
+                .apply()
+        }
     }
 
     private fun setupPieChart(){

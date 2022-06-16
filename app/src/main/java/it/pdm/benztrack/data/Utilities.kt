@@ -1,25 +1,24 @@
 package it.pdm.benztrack.data
 
+import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
 
 class Utilities {
     companion object{
-        fun getTotalSpentThisMonth(expenses: List<Expense>): Double{
+        fun getTotalSpent(expenses: List<Expense>): Double{
             var spentThisMonth = 0.0
-            val currentMonthExpenses = getThisMonthExpenses(expenses)
 
-            for(i in currentMonthExpenses){
+            for(i in expenses){
                 spentThisMonth += i.spent
             }
 
             return spentThisMonth
         }
 
-        fun getEmittedThisMonth(expenses: List<Expense>, fuelType: String, euroCategory: String): Double {
-            val currentMonthExpenses = getThisMonthExpenses(expenses)
-            val refuels = currentMonthExpenses.filter { e -> e.type == "REFUEL" }
+        fun getEmitted(expenses: List<Expense>, fuelType: String, euroCategory: String): Double {
+            val refuels = expenses.filter { e -> e.type == "REFUEL" }
             val percurred = refuels[refuels.size-1].totalKm?.minus(refuels[0].totalKm!!)
 
             val emitted: Double
@@ -56,8 +55,7 @@ class Utilities {
         }
 
         fun getAvgConsumption(expenses: List<Expense>): Double{
-            val currentMonthExpenses = getThisMonthExpenses(expenses)
-            val refuels = currentMonthExpenses.filter { e -> e.type == "REFUEL" }
+            val refuels = expenses.filter { e -> e.type == "REFUEL" }
             val percurred = refuels[refuels.size-1].totalKm?.minus(refuels[0].totalKm!!)!!
 
             var litersUsed = 0.0
@@ -72,7 +70,14 @@ class Utilities {
             val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN).format(Date()).toString().split('/')
             return expenses.filter { e -> e.date.split('/')[1] == currentDate[1] && e.date.split('/')[2] == currentDate[2] }
         }
+
+        fun getPrevMonthExpenses(expenses: List<Expense>): List<Expense>{
+            val format = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN)
+            val cal = Calendar.getInstance()
+            cal.add(Calendar.MONTH, -1)
+            val datePrevMonth = format.format(cal.time).split('/')
+
+            return expenses.filter { e -> e.date.split('/')[1] ==  datePrevMonth[1] && e.date.split('/')[2] == datePrevMonth[2]}
+        }
     }
-
-
 }
