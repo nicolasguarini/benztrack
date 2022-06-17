@@ -60,8 +60,10 @@ BenzTrack is an Android application developed in Kotlin, and several technologie
 * [Kotlin](https://developer.android.com/kotlin)
 * [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
 * [SQLite](https://www.sqlite.org/)
+* [Room Persistence Library](https://developer.android.com/training/data-storage/room)
 * [OkHTTP](https://square.github.io/okhttp/)
 * [RapidAPI](https://rapidapi.com/principalapis/api/car-data/)
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
