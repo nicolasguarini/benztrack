@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
@@ -36,6 +37,7 @@ class HomeFragment : Fragment() {
     private lateinit var tvSpentThisMonth: TextView
     private lateinit var tvEmittedThisMonth: TextView
     private lateinit var tvAvgConsumptionThisMonth: TextView
+    private lateinit var imgUser: ImageView
 
     private lateinit var pieChart: PieChart
     private lateinit var lineChart: LineChart
@@ -65,6 +67,8 @@ class HomeFragment : Fragment() {
         tvSpentThisMonth = requiredView.findViewById(R.id.tvSpentThisMonth)
         tvEmittedThisMonth = requiredView.findViewById(R.id.tvEmittedThisMonth)
         tvAvgConsumptionThisMonth = requiredView.findViewById(R.id.tvAvgConsumptionThisMonth)
+        imgUser = requiredView.findViewById(R.id.imgUser)
+        imgUser.setOnClickListener { startActivity(Intent(this.requireContext(), UserActivity::class.java)) }
 
         pieChart = requiredView.findViewById(R.id.homePieChart)
         lineChart = requiredView.findViewById(R.id.homeLineChart)

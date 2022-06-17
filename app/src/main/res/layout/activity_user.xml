@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:orientation="vertical"
+    tools:context=".UserActivity">
+    <TextView
+        android:id="@+id/addExpenseTitleLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_user_profile"
+        android:textSize="28sp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/black"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="22dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textAllCaps="true"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@color/lightgray"
+        android:letterSpacing="0.16"
+        android:textSize="12sp"
+        />
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/rounded_edittext"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/hint_insert_name"
+        android:inputType="numberDecimal"
+        android:paddingStart="24dp"
+        android:paddingEnd="4dp"
+        android:autofillHints=""
+        />
+    <Button
+        android:id="@+id/btnSaveChanges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="@string/save"
+        app:cornerRadius="100dp"
+        android:layout_marginTop="42dp"/>
+
+    <Button
+        android:id="@+id/btnSendNotification"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_send_notification"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center" />
+
+    <Button
+        android:id="@+id/btnClearExpenses"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btnClearExpenses"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center" />
+</LinearLayout>

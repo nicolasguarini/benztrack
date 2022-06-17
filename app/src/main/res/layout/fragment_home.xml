@@ -42,6 +42,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/imgUser"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:src="@drawable/ic_baseline_account_circle_24"

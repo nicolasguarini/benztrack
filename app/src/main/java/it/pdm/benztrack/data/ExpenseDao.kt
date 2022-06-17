@@ -20,6 +20,9 @@ interface ExpenseDao {
     @Delete
     fun delete(expense: Expense)
 
+    @Query("DELETE FROM expenses WHERE carId == :cardId")
+    fun deleteCarExpenses(cardId: Long)
+
     @Query("DELETE FROM expenses WHERE expenseId == :expenseId")
     fun deleteFromId(expenseId: Long)
 }

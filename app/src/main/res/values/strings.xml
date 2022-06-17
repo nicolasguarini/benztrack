@@ -67,4 +67,11 @@
     <string name="welcome_user">Ciao, %1$s!</string>
     <string name="car_label">%1$s %2$s</string>
     <string name="km_l">km/l</string>
+    <string name="label_user_profile">Il tuo profilo</string>
+    <string name="name">nome</string>
+    <string name="hint_insert_name">Inserisci il tuo nome</string>
+    <string name="save">Salva</string>
+    <string name="btn_send_notification">Invia notifica</string>
+    <string name="btn_clear_data">Elimina dati</string>
+    <string name="btnClearExpenses">Elimina spese</string>
 </resources>

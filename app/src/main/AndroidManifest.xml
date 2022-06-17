@@ -12,7 +12,12 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BenzTrack">
+        <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+
         <receiver android:name=".NotificationReceiver" />
+
         <activity
             android:name=".SingleExpenseActivity"
             android:exported="false" />
