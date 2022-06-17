@@ -3,6 +3,7 @@
     package="it.pdm.benztrack">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,7 @@
         android:roundIcon="@drawable/ic_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.BenzTrack">
+        <receiver android:name=".NotificationReceiver" />
         <activity
             android:name=".SingleExpenseActivity"
             android:exported="false" />
