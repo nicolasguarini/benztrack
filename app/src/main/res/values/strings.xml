@@ -2,8 +2,7 @@
     <string name="app_name">BenzTrack</string>
     <string name="app_logo_description">BenzTrack Logo</string>
     <string name="welcome_title">Benvenuto!</string>
-    <string name="welcome_body">BenzTrack è un\'app che si pone come Crazy Programmer ipsum dolor sit amet, teng o north face nir. Etiam eu turpis molestie, dictum est a, mattis tellus.\n\nSed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar.</string>
-    <string name="hint_name">Inserisci il tuo nome</string>
+    <string name="welcome_body">BenzTrack è un\'app che si pone come obbiettivo quello di tenere traccia delle spese relative alla tua auto, mostrandoti grafici e informazioni riguardo i tuoi consumi e le quantità di CO emesse.\n\nDopo aver registrato la tua auto, potrai cominciare a registrare le tue spese divise in 4 categorie: Rifornimento, Assicurazione, Manutenzione, Tasse. In tempo reale vedrai i grafici relativi alla distribuzione e all\'andamento delle spese. BenzTrack ti invierà, inoltre, delle notifiche periodiche per informarti del tuo andamento rispetto al mese precedente.</string>
     <string name="btn_avanti">Avanti</string>
     <string name="select_brand_title">Seleziona il produttore della tua auto</string>
     <string name="select_model_title">Seleziona il modello della tua auto</string>
@@ -42,13 +41,13 @@
     <string name="label_car_name">Mini Cooper S</string>
     <string name="label_total_spent_home">QUESTO MESE HAI SPESO</string>
     <string name="euro">€</string>
-    <string name="sample_spent">85,10</string>
-    <string name="sample_percent">+12,4%</string>
+    <string name="sample_spent">00,00</string>
+    <string name="sample_percent">+00,0%</string>
     <string name="label_emitted_home">HAI EMESSO</string>
-    <string name="sample_emitted">15</string>
+    <string name="sample_emitted">0</string>
     <string name="g">g di CO</string>
     <string name="label_avg_consumption">CONSUMO MEDIO</string>
-    <string name="sample_consumption_home">1,2</string>
+    <string name="sample_consumption_home">0,0</string>
     <string name="l_100km">l/100km</string>
     <string name="distribution">Distribuzione</string>
     <string name="trend">Andamento</string>
@@ -74,4 +73,7 @@
     <string name="btn_send_notification">Invia notifica</string>
     <string name="btn_clear_data">Elimina dati</string>
     <string name="btnClearExpenses">Elimina spese</string>
+    <string name="hint_name">Inserisci il tuo nome</string>
+    <string name="hello">CIAO!</string>
+    <string name="placeholed_car">Mini Cooper S</string>
 </resources>

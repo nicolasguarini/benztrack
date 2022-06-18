@@ -9,6 +9,7 @@ import android.content.Intent
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import it.pdm.benztrack.data.Utilities
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
@@ -48,14 +49,9 @@ class NotificationReceiver : BroadcastReceiver() {
             val consumptionThisMonth = sharedPreferences.getFloat("consumptionThisMonth", -1f)
             val consumptionPrevMonth = sharedPreferences.getFloat("consumptionPrevMonth", -1f)
 
-            val cal: Calendar = Calendar.getInstance()
-            val monthDate = SimpleDateFormat("MMMM", Locale.ITALIAN)
-            val monthYear = SimpleDateFormat("yyyy", Locale.ITALIAN)
-
-            val monthName: String = monthDate.format(cal.time)
-            val yearName: String = monthYear.format(cal.time)
+            val monthYear = Utilities.getThisMonthYear()
             val deltaPercent = (getDeltaPercent(consumptionPrevMonth, consumptionThisMonth) * 10.0).roundToInt() / 10.0
-            val contentTitle = "Aggiornamento consumi $monthName $yearName"
+            val contentTitle = "Aggiornamento consumi $monthYear"
             var contentText = "Questo mese hai speso $spentThisMonth €, emettendo $emittedThisMonth g di CO, con un consumo medio di $consumptionThisMonth km/l, "
             contentText += if(deltaPercent < 0f){
                 "-$deltaPercent% rispetto al mese scorso, stai andando alla grande!"

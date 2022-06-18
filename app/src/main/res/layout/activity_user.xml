@@ -39,7 +39,7 @@
         android:background="@drawable/rounded_edittext"
         android:fontFamily="@font/montserrat_regular"
         android:hint="@string/hint_insert_name"
-        android:inputType="numberDecimal"
+        android:inputType="textPersonName"
         android:paddingStart="24dp"
         android:paddingEnd="4dp"
         android:autofillHints=""

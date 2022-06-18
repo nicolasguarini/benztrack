@@ -1,61 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExpenseListFragment"
     android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp">
+    android:layout_marginRight="16dp"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:letterSpacing="0.28"
-                    android:text="CIAO, NICOLAS!"
-                    android:textColor="@color/lightgray"
-                    android:textSize="11sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:text="Mini Cooper S"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:textSize="24sp"/>
-            </LinearLayout>
+            android:orientation="vertical"
+            android:layout_weight="1">
 
             <TextView
+                android:id="@+id/tvExpensesListWelcomeUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="icon_user"
-                android:layout_gravity="end" />
+                android:fontFamily="@font/montserrat_semibold"
+                android:letterSpacing="0.28"
+                android:textAllCaps="true"
+                android:text="@string/hello"
+                android:textColor="@color/lightgray"
+                android:textSize="11sp" />
+            <TextView
+                android:id="@+id/tvCarNameExpensesList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/label_car_name"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textSize="24sp"/>
         </LinearLayout>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lvExpenseList"
-            />
+        <ImageView
+            android:id="@+id/imgUserExpensesList"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            android:layout_gravity="end"
+            android:contentDescription="@string/welcome_user"/>
     </LinearLayout>
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvExpenseList"
+        />
+</LinearLayout>
 
-
-</FrameLayout>

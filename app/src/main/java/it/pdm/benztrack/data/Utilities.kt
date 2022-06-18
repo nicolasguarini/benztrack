@@ -79,5 +79,16 @@ class Utilities {
 
             return expenses.filter { e -> e.date.split('/')[1] ==  datePrevMonth[1] && e.date.split('/')[2] == datePrevMonth[2]}
         }
+
+        fun getThisMonthYear(): String{
+            val cal: Calendar = Calendar.getInstance()
+            val monthDate = SimpleDateFormat("MMMM", Locale.ITALIAN)
+            val monthYear = SimpleDateFormat("yyyy", Locale.ITALIAN)
+
+            val monthName: String = monthDate.format(cal.time).replaceFirstChar { it.uppercase() }
+            val yearName: String = monthYear.format(cal.time)
+
+            return "$monthName $yearName"
+        }
     }
 }

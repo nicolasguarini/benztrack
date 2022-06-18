@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_semibold"
                 android:letterSpacing="0.28"
-                android:text="@string/label_welcome_home"
+                android:text="@string/hello"
                 android:textAllCaps="true"
                 android:textColor="@color/lightgray"
                 android:textSize="11sp" />

@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
-import android.graphics.DashPathEffect
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -25,9 +25,10 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
-import com.github.mikephil.charting.utils.Utils
 import com.google.android.material.button.MaterialButton
 import it.pdm.benztrack.data.*
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.Executors
 import kotlin.collections.ArrayList
 
@@ -123,7 +124,13 @@ class HomeFragment : Fragment() {
             val service = Executors.newSingleThreadExecutor()
             val handler = Handler(Looper.getMainLooper())
             service.execute {
-                expensesList = expenseDao.getExpensesFromCarId(selectedCarId).sortedBy { e -> e.date }
+                expensesList = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    val dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
+                    expenseDao.getExpensesFromCarId(selectedCarId).sortedBy { LocalDate.parse(it.date, dateTimeFormatter) }
+                } else {
+                    expenseDao.getExpensesFromCarId(selectedCarId).sortedBy { it.date }
+                }
+
                 for (i in expensesList) {
                     Log.d("DB RESULT", i.toString())
                     Log.d("SELECTED CAR", selectedCarId.toString())
@@ -146,7 +153,7 @@ class HomeFragment : Fragment() {
 
                     adapter = CustomAdapter(requireContext(), arrayList)
                     listView.adapter = adapter
-                    listView.setOnItemClickListener { parent, view, position, id ->
+                    listView.setOnItemClickListener { _, _, position, _ ->
                         val expenseId = arrayList[position].expenseId
                         startActivity(Intent(this.requireContext(), SingleExpenseActivity::class.java).putExtra("expenseId", expenseId))
                     }
@@ -197,7 +204,8 @@ class HomeFragment : Fragment() {
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
         pieChart.holeRadius = 48f
-        pieChart.centerText = "Maggio 2022"
+        pieChart.centerText = Utilities.getThisMonthYear()
+        pieChart.centerText = Utilities.getThisMonthYear()
         pieChart.setCenterTextSize(16f)
         pieChart.setDrawCenterText(true)
         pieChart.setEntryLabelColor(R.color.black)
@@ -268,7 +276,7 @@ class HomeFragment : Fragment() {
             lineChart.data.notifyDataChanged()
             lineChart.notifyDataSetChanged()
         } else {
-            set1 = LineDataSet(values, "Andamento spese Maggio 2022")
+            set1 = LineDataSet(values, "Andamento spese ${Utilities.getThisMonthYear()}")
             set1.setDrawIcons(false)
             set1.color = Color.DKGRAY
             set1.setCircleColor(Color.DKGRAY)
