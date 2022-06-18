@@ -1,24 +1,18 @@
 package it.pdm.benztrack
 
 import android.content.Intent
-import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.google.gson.JsonElement
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import org.json.JSONObject
 import java.net.URL
-import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 class SelectCarBrandActivity : AppCompatActivity() {
@@ -32,10 +26,10 @@ class SelectCarBrandActivity : AppCompatActivity() {
 
         val service = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())
-        service.execute(Runnable {
+        service.execute {
             getBrands()
-            handler.post(Runnable { showListView() })
-        })
+            handler.post { showListView() }
+        }
 
         findViewById<Button>(R.id.btnProducerNext).setOnClickListener {
             if (selectedBrand != "") {
@@ -49,13 +43,14 @@ class SelectCarBrandActivity : AppCompatActivity() {
     }
 
     private fun getBrands(){
+        val key = BuildConfig.RAPIDAPI_KEY
         try {
             val client = OkHttpClient()
             val request = Request.Builder()
                 .url(url)
                 .get()
                 .addHeader("X-RapidAPI-Host", "car-data.p.rapidapi.com")
-                .addHeader("X-RapidAPI-Key", "09b1cc4c05msh7ee26c674f810e5p1df3e2jsn2e0a7d20d96b")
+                .addHeader("X-RapidAPI-Key", key)
                 .build()
 
             val body = client.newCall(request).execute().body?.string()

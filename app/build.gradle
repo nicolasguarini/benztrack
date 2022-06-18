@@ -5,6 +5,10 @@ plugins {
 
 apply plugin: 'kotlin-kapt'
 
+def apikeyPropertiesFile = rootProject.file("apikeys.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdk 32
 
@@ -16,6 +20,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "RAPIDAPI_KEY", apikeyProperties['RAPIDAPI_KEY'])
     }
 
     buildTypes {

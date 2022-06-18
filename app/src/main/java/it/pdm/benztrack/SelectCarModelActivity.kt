@@ -10,13 +10,10 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.*
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.annotations.SerializedName
 import okhttp3.OkHttpClient
 import okhttp3.Request
-import okhttp3.internal.wait
-import java.net.URL
 import java.util.concurrent.Executors
 
 class SelectCarModelActivity : AppCompatActivity() {
@@ -37,10 +34,10 @@ class SelectCarModelActivity : AppCompatActivity() {
 
         val service = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())
-        service.execute(Runnable {
+        service.execute {
             getModels()
-            handler.post(Runnable {showListView()})
-        })
+            handler.post { showListView() }
+        }
 
         findViewById<Button>(R.id.btnModelNext).setOnClickListener {
             if(selectedModel != ""){
@@ -58,6 +55,7 @@ class SelectCarModelActivity : AppCompatActivity() {
         var responseResult = true
         val pageModels = mutableListOf<String>()
         var pageIndex = 0
+        val key = BuildConfig.RAPIDAPI_KEY
 
         try {
             while(responseResult) {
@@ -67,15 +65,12 @@ class SelectCarModelActivity : AppCompatActivity() {
                     .url(url)
                     .get()
                     .addHeader("X-RapidAPI-Host", "car-data.p.rapidapi.com")
-                    .addHeader(
-                        "X-RapidAPI-Key",
-                        "09b1cc4c05msh7ee26c674f810e5p1df3e2jsn2e0a7d20d96b"
-                    )
+                    .addHeader("X-RapidAPI-Key", key)
                     .build()
                 val body = client.newCall(request).execute().body?.string()
 
                 if (body != "[]") {
-                    var parsedData: Array<CarInfo> = emptyArray()
+                    var parsedData: Array<CarInfo>
                     try{
                         parsedData = GsonBuilder().create().fromJson(body, Array<CarInfo>::class.java)
                     }catch(ex: Exception){
