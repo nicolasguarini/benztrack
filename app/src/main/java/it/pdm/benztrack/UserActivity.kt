@@ -17,11 +17,11 @@ import java.util.*
 import java.util.concurrent.Executors
 
 class UserActivity : AppCompatActivity() {
-    lateinit var etUserName: EditText
-    lateinit var btnSaveChanges: Button
-    lateinit var btnSendNotification: Button
-    lateinit var btnClearExpenses: Button
-    lateinit var userName: String
+    private lateinit var etUserName: EditText
+    private lateinit var btnSaveChanges: Button
+    private lateinit var btnSendNotification: Button
+    private lateinit var btnClearExpenses: Button
+    private lateinit var userName: String
 
     private lateinit var db: AppDatabase
     private lateinit var expenseDao: ExpenseDao

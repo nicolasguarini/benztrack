@@ -17,20 +17,15 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
         if(sharedPref.getBoolean("firstStart", true)){
             setupAlarmManager()
-            val intent = Intent(this, WelcomeActivity::class.java)
-            startActivity(intent)
-            finish()
+            startActivity(Intent(this, WelcomeActivity::class.java))
         }else{
-            val intent = Intent(this, DashboardActivity::class.java)
-            startActivity(intent)
-            finish()
+            startActivity(Intent(this, DashboardActivity::class.java))
         }
+        finish()
     }
 
     private fun setupAlarmManager(){
         val calendar = Calendar.getInstance()
-        Log.d("MILLS", calendar.timeInMillis.toString())
-        Log.d("INTERVAL_DAY", AlarmManager.INTERVAL_DAY.toString())
 
         val intent = Intent(applicationContext, NotificationReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(

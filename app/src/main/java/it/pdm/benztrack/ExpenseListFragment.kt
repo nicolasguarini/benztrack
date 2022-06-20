@@ -79,8 +79,6 @@ class ExpenseListFragment : Fragment() {
                 }
 
                 for(i in expensesList){
-                    Log.d("DB RESULT", i.toString())
-
                     val iconId = when(i.type){
                         "REFUEL" -> R.drawable.ic_green_local_gas_station_for_list
                         "MAINTENANCE" -> R.drawable.ic_tabler_engine

@@ -132,9 +132,6 @@ class HomeFragment : Fragment() {
                 }
 
                 for (i in expensesList) {
-                    Log.d("DB RESULT", i.toString())
-                    Log.d("SELECTED CAR", selectedCarId.toString())
-
                     val iconId = when (i.type) {
                         "REFUEL" -> R.drawable.ic_green_local_gas_station_for_list
                         "MAINTENANCE" -> R.drawable.ic_tabler_engine
@@ -190,7 +187,7 @@ class HomeFragment : Fragment() {
             .apply()
 
         val prevMonthExpenses = Utilities.getPrevMonthExpenses(expensesList)
-        if(prevMonthExpenses.any { e -> e.type == "REFUEL" }){
+        if(prevMonthExpenses.any { it.type == "REFUEL" }){
             val consumptionPrevMonth = Utilities.getAvgConsumption(prevMonthExpenses)
             sharedPreferences.edit()
                 .putFloat("consumptionPrevMonth", consumptionPrevMonth.toFloat())

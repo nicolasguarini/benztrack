@@ -74,7 +74,7 @@ class SelectCarModelActivity : AppCompatActivity() {
                     try{
                         parsedData = GsonBuilder().create().fromJson(body, Array<CarInfo>::class.java)
                     }catch(ex: Exception){
-                        Log.d("GSON ERROR", body.toString())
+                        ex.printStackTrace()
                         break
                     }
 

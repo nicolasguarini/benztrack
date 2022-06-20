@@ -10,8 +10,6 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import it.pdm.benztrack.data.Utilities
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.math.roundToInt
 
 class NotificationReceiver : BroadcastReceiver() {

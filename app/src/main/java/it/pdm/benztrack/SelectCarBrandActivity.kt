@@ -54,8 +54,8 @@ class SelectCarBrandActivity : AppCompatActivity() {
                 .build()
 
             val body = client.newCall(request).execute().body?.string()
-            this.brands = GsonBuilder().create().fromJson(body, Array<String>::class.java)
-            this.brands.sort()
+            brands = GsonBuilder().create().fromJson(body, Array<String>::class.java)
+            brands.sort()
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
         }
