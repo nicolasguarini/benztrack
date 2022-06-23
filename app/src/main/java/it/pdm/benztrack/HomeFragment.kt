@@ -100,7 +100,7 @@ class HomeFragment : Fragment() {
         }
 
         btnLineChart.setOnClickListener {
-            if(selectedChart != "LINE"){
+            if(selectedChart != "LINE" && expensesList.isNotEmpty()){
                 pieChart.visibility = View.GONE
                 lineChart.visibility = View.VISIBLE
 
@@ -201,8 +201,7 @@ class HomeFragment : Fragment() {
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
         pieChart.holeRadius = 48f
-        pieChart.centerText = Utilities.getThisMonthYear()
-        pieChart.centerText = Utilities.getThisMonthYear()
+        pieChart.centerText = if (expensesList.isEmpty()) "Nessuna spesa registrata!" else Utilities.getThisMonthYear()
         pieChart.setCenterTextSize(16f)
         pieChart.setDrawCenterText(true)
         pieChart.setEntryLabelColor(R.color.black)

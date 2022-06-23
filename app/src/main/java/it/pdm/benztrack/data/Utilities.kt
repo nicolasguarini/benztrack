@@ -18,7 +18,12 @@ class Utilities {
         }
 
         fun getEmitted(expenses: List<Expense>, fuelType: String, euroCategory: String): Double {
-            val refuels = expenses.filter { e -> e.type == "REFUEL" }
+            val refuels = expenses.filter { it.type == "REFUEL" }
+
+            if (refuels.isEmpty()){
+                return 0.0
+            }
+
             val percurred = refuels[refuels.size-1].totalKm?.minus(refuels[0].totalKm!!)
 
             val emitted: Double
@@ -55,7 +60,12 @@ class Utilities {
         }
 
         fun getAvgConsumption(expenses: List<Expense>): Double{
-            val refuels = expenses.filter { e -> e.type == "REFUEL" }
+            val refuels = expenses.filter { it.type == "REFUEL" }
+
+            if(refuels.isEmpty()){
+                return 0.0
+            }
+
             val percurred = refuels[refuels.size-1].totalKm?.minus(refuels[0].totalKm!!)!!
 
             var litersUsed = 0.0

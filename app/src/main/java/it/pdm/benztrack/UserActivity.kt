@@ -69,7 +69,7 @@ class UserActivity : AppCompatActivity() {
             applicationContext,
             100,
             intent,
-            PendingIntent.FLAG_UPDATE_CURRENT
+            PendingIntent.FLAG_IMMUTABLE
         )
 
         val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
