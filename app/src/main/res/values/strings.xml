@@ -76,4 +76,5 @@
     <string name="hint_name">Inserisci il tuo nome</string>
     <string name="hello">CIAO!</string>
     <string name="placeholed_car">Mini Cooper S</string>
+    <string name="generate_expenses">Genera spese</string>
 </resources>

@@ -63,6 +63,14 @@
         android:layout_gravity="center" />
 
     <Button
+        android:id="@+id/btnGenerateExpenses"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/generate_expenses"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center" />
+
+    <Button
         android:id="@+id/btnClearExpenses"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

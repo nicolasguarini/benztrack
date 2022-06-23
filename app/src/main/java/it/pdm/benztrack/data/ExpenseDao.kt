@@ -8,6 +8,9 @@ interface ExpenseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertExpense(expense: Expense)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertExpenses(expenses: List<Expense>)
+
     @Query("SELECT * FROM expenses")
     fun getAll(): List<Expense>
 
