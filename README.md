@@ -120,7 +120,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the Apache 2.0 License. See `LICENSE.txt` for more information.
+Distributed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. See `LICENSE.md` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -147,7 +147,7 @@ Redon Kokaj - Mat. 744959
 [issues-shield]: https://img.shields.io/github/issues/nicolasguarini/BenzTrack.svg?style=for-the-badge
 [issues-url]: https://github.com/nicolasguarini/BenzTrack/issues
 [license-shield]: https://img.shields.io/github/license/nicolasguarini/BenzTrack.svg?style=for-the-badge
-[license-url]: https://github.com/nicolasguarini/BenzTrack/blob/master/LICENSE.txt
+[license-url]: https://github.com/nicolasguarini/BenzTrack/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: [https://linkedin.com/in/othneildrew](https://www.linkedin.com/in/nicolas-guarini-b97539179/)
 [product-screenshot]: mockup.png
