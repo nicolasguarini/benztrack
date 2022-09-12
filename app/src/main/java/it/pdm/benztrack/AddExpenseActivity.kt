@@ -95,10 +95,10 @@ class AddExpenseActivity : AppCompatActivity() {
         if(expenseIdExtra != -1L){ //We are modifying an existing expense
             expenseId = expenseIdExtra
             tvTitleLabel.text = when(expenseType){
-                "REFUEL" -> "Modifica rifornimento"
-                "TAX" -> "Modifica tassa"
-                "MAINTENANCE" -> "Modifica manutenzione"
-                else -> "Modifica assicurazione"
+                "REFUEL" -> getString(R.string.update_refuel)
+                "TAX" -> getString(R.string.update_tax)
+                "MAINTENANCE" -> getString(R.string.update_maintenance)
+                else -> getString(R.string.update_insurance)
             }
             
             val service = Executors.newSingleThreadExecutor()
@@ -170,12 +170,12 @@ class AddExpenseActivity : AppCompatActivity() {
                 }
 
                 if (totalSpent < 0 || totalKm < 0 || pricePerLiter <= 0){
-                    Toast.makeText(this, "Inserisci tutti i dati!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.insert_all_data_warning), Toast.LENGTH_SHORT).show()
                     errorFlag = true
                 }else {
                     newExpense = Expense(
                         expenseId,
-                        "Rifornimento",
+                        getString(R.string.refuel_title),
                         expenseType,
                         dateString,
                         totalSpent,
@@ -190,7 +190,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 val title = etMaintenanceTitle.text.toString()
 
                 if (totalSpent < 0 || title == ""){
-                    Toast.makeText(this, "Inserisci tutti i dati!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.insert_all_data_warning), Toast.LENGTH_SHORT).show()
                     errorFlag = true
                 }else{
                     newExpense = Expense(
@@ -210,7 +210,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 val title = etTaxTitle.text.toString()
 
                 if (totalSpent < 0 || title == ""){
-                    Toast.makeText(this, "Inserisci tutti i dati!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.insert_all_data_warning), Toast.LENGTH_SHORT).show()
                     errorFlag = true
                 }else{
                     newExpense = Expense(
@@ -234,10 +234,10 @@ class AddExpenseActivity : AppCompatActivity() {
                 }
 
                 if (year < 1900 || totalSpent < 0){
-                    Toast.makeText(this, "Inserisci tutti i dati!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.insert_all_data_warning), Toast.LENGTH_SHORT).show()
                     errorFlag = true
                 }else{
-                    val title = "Assicurazione $year"
+                    val title = getString(R.string.insurance_title) + year
                     newExpense = Expense(
                         expenseId,
                         title,

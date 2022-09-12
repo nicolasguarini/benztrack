@@ -80,8 +80,8 @@ class SingleExpenseActivity : AppCompatActivity() {
 
     private fun showAlertDialog() {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this)
-        builder.setTitle("Eliminare ${expense.title}?")
-        builder.setMessage("Confermando, eliminerai definitivamente questa spesa!")
+        builder.setTitle(getString(R.string.delete) + expense.title + "?")
+        builder.setMessage(getString(R.string.confirm_delete))
         builder.setPositiveButton(android.R.string.ok) { dialog, id ->
             dialog.dismiss()
             deleteExpense()
@@ -125,7 +125,7 @@ class SingleExpenseActivity : AppCompatActivity() {
                 }
             }
         }else{
-            Toast.makeText(applicationContext, "DB ERROR: cancella i dati dell'app e registra l'auto", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, getString(R.string.db_error), Toast.LENGTH_SHORT).show()
         }
     }
 

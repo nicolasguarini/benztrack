@@ -54,7 +54,7 @@
                 android:backgroundTint="@color/lightgray_bg"
                 android:fontFamily="@font/montserrat_semibold"
                 android:padding="20dp"
-                android:text="@string/benzina"
+                android:text="@string/petrol"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:cornerRadius="25dp"
@@ -72,7 +72,7 @@
                 android:padding="20dp"
                 android:backgroundTint="@color/lightgray_bg"
                 android:fontFamily="@font/montserrat_semibold"
-                android:text="@string/ibrida"
+                android:text="@string/hybrid"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:icon="@drawable/ic_baseline_electric_car_24"
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="@string/btn_avanti"
+            android:text="@string/btn_continue"
             app:cornerRadius="100dp"
             android:layout_marginTop="38dp"/>
     </LinearLayout>

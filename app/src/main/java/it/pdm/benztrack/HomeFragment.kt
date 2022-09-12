@@ -156,7 +156,7 @@ class HomeFragment : Fragment() {
                 }
             }
         }else{
-            Toast.makeText(this.requireContext(), "DB ERROR: cancella i dati dell'app o reinstallala", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.requireContext(), getString(R.string.db_error), Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -200,7 +200,7 @@ class HomeFragment : Fragment() {
         pieChart.isDrawHoleEnabled = true
         pieChart.setHoleColor(Color.WHITE)
         pieChart.holeRadius = 48f
-        pieChart.centerText = if (expensesList.isEmpty()) "Nessuna spesa registrata!" else Utilities.getThisMonthYear()
+        pieChart.centerText = if (expensesList.isEmpty()) getString(R.string.no_expense_registered_warning) else Utilities.getThisMonthYear()
         pieChart.setCenterTextSize(16f)
         pieChart.setDrawCenterText(true)
         pieChart.setEntryLabelColor(R.color.black)
@@ -246,10 +246,10 @@ class HomeFragment : Fragment() {
         }
 
         val total = spentRefuel + spentMaintenance + spentInsurance + spentTax
-        if(spentRefuel > 0.0) entries.add(PieEntry(((spentRefuel/total)*100).toFloat(), "Rifornimento"))
-        if(spentMaintenance > 0.0) entries.add(PieEntry(((spentMaintenance/total)*100).toFloat(), "Manutenzione"))
-        if(spentInsurance > 0.0) entries.add(PieEntry(((spentInsurance/total)*100).toFloat(), "Assicurazione"))
-        if(spentTax > 0.0) entries.add(PieEntry(((spentTax/total)*100).toFloat(), "Tasse"))
+        if(spentRefuel > 0.0) entries.add(PieEntry(((spentRefuel/total)*100).toFloat(), getString(R.string.refuel_title)))
+        if(spentMaintenance > 0.0) entries.add(PieEntry(((spentMaintenance/total)*100).toFloat(), getString(R.string.maintenance_title)))
+        if(spentInsurance > 0.0) entries.add(PieEntry(((spentInsurance/total)*100).toFloat(), getString(R.string.insurance_title)))
+        if(spentTax > 0.0) entries.add(PieEntry(((spentTax/total)*100).toFloat(), getString(R.string.tax_title)))
 
         return entries
     }
@@ -271,7 +271,7 @@ class HomeFragment : Fragment() {
             lineChart.data.notifyDataChanged()
             lineChart.notifyDataSetChanged()
         } else {
-            set1 = LineDataSet(values, "Andamento spese ${Utilities.getThisMonthYear()}")
+            set1 = LineDataSet(values, getString(R.string.expenses_trend) + Utilities.getThisMonthYear())
             set1.setDrawIcons(false)
             set1.color = Color.DKGRAY
             set1.setCircleColor(Color.DKGRAY)

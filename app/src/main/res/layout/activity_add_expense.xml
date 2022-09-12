@@ -262,7 +262,7 @@
             android:layout_marginEnd="12dp"
             android:background="@drawable/rounded_edittext"
             android:fontFamily="@font/montserrat_regular"
-            android:hint="@string/etInsDate"
+            android:hint="@string/example_date"
             android:inputType="date"
             android:paddingStart="24dp"
             android:paddingEnd="4dp"
@@ -316,7 +316,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:fontFamily="@font/montserrat_semibold"
-        android:text="@string/btn_registra"
+        android:text="@string/btn_register"
         app:cornerRadius="100dp"
         android:layout_marginTop="42dp"/>
 </LinearLayout>

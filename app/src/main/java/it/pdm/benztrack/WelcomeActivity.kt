@@ -24,7 +24,7 @@ class WelcomeActivity : AppCompatActivity() {
                 val intent = Intent(this, SelectCarBrandActivity::class.java)
                 startActivity(intent)
             }else{
-                Toast.makeText(this, "Enter a valid name!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.enter_valid_name), Toast.LENGTH_SHORT).show()
             }
         }
 

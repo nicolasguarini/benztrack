@@ -27,7 +27,7 @@ class Utilities {
             val percurred = refuels[refuels.size-1].totalKm?.minus(refuels[0].totalKm!!)
 
             val emitted: Double
-            when(fuelType){ //FONTE: WIKIPEDIA
+            when(fuelType){ //SOURCE: WIKIPEDIA
                 "petrol" ->{
                     emitted =  when(euroCategory){
                         "Euro 6" -> 1.0 * percurred!!

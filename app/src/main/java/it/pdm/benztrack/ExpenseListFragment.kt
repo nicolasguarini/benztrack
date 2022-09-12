@@ -100,7 +100,7 @@ class ExpenseListFragment : Fragment() {
                 }
             }
         }else{
-            Toast.makeText(this.requireContext(), "DB ERROR: cancella i dati dell'app e registra l'auto", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this.requireContext(), getString(R.string.db_error), Toast.LENGTH_SHORT).show()
         }
     }
 }

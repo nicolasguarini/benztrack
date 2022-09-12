@@ -49,12 +49,14 @@ class NotificationReceiver : BroadcastReceiver() {
 
             val monthYear = Utilities.getThisMonthYear()
             val deltaPercent = (getDeltaPercent(consumptionPrevMonth, consumptionThisMonth) * 10.0).roundToInt() / 10.0
-            val contentTitle = "Aggiornamento consumi $monthYear"
-            var contentText = "Questo mese hai speso $spentThisMonth €, emettendo $emittedThisMonth g di CO, con un consumo medio di $consumptionThisMonth km/l, "
+            val contentTitle = context.getString(R.string.consumptions_update) + monthYear
+            var contentText =
+                context.getString(R.string.spent_this_month) + spentThisMonth + context.getString(R.string.emitting) + emittedThisMonth + context.getString(
+                                    R.string.with_medium_consumption) + consumptionThisMonth + " " + context.getString(R.string.km_l) + ", "
             contentText += if(deltaPercent < 0f){
-                "-$deltaPercent% rispetto al mese scorso, stai andando alla grande!"
+                "-$deltaPercent" + context.getString(R.string.doing_great)
             }else{
-                "+$deltaPercent% rispetto al mese scorso, puoi fare di meglio!"
+                "+$deltaPercent" + context.getString(R.string.can_do_better)
             }
 
             val builder = NotificationCompat.Builder(context, channelId)

@@ -46,7 +46,7 @@ class SelectCarModelActivity : AppCompatActivity() {
                 intent.putExtra("selectedModel", selectedModel)
                 startActivity(intent)
             }else{
-                Toast.makeText(this, "No item selected!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.no_item_selected), Toast.LENGTH_SHORT).show()
             }
         }
     }
