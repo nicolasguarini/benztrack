@@ -1,6 +1,5 @@
 package it.pdm.benztrack.data
 
-import android.util.Log
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
@@ -77,12 +76,12 @@ class Utilities {
         }
 
         fun getThisMonthExpenses(expenses: List<Expense>): List<Expense>{
-            val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN).format(Date()).toString().split('/')
+            val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date()).toString().split('/')
             return expenses.filter { e -> e.date.split('/')[1] == currentDate[1] && e.date.split('/')[2] == currentDate[2] }
         }
 
         fun getPrevMonthExpenses(expenses: List<Expense>): List<Expense>{
-            val format = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN)
+            val format = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
             val cal = Calendar.getInstance()
             cal.add(Calendar.MONTH, -1)
             val datePrevMonth = format.format(cal.time).split('/')
@@ -92,8 +91,9 @@ class Utilities {
 
         fun getThisMonthYear(): String{
             val cal: Calendar = Calendar.getInstance()
-            val monthDate = SimpleDateFormat("MMMM", Locale.ITALIAN)
-            val monthYear = SimpleDateFormat("yyyy", Locale.ITALIAN)
+
+            val monthDate = SimpleDateFormat("MMMM", Locale.getDefault())
+            val monthYear = SimpleDateFormat("yyyy", Locale.getDefault())
 
             val monthName: String = monthDate.format(cal.time).replaceFirstChar { it.uppercase() }
             val yearName: String = monthYear.format(cal.time)

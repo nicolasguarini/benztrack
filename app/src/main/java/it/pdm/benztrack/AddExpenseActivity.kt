@@ -66,7 +66,7 @@ class AddExpenseActivity : AppCompatActivity() {
         etDescription = findViewById(R.id.etOptionalDescription)
         etYear = findViewById(R.id.etYear)
         etDate.transformIntoDatePicker(this, "dd/MM/yyyy", Date())
-        etDate.hint = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN).format(Date()).toString()
+        etDate.hint = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date()).toString()
         btnRegister = findViewById(R.id.btnRegister)
         btnRegister.setOnClickListener { registerExpense() }
 
@@ -144,7 +144,7 @@ class AddExpenseActivity : AppCompatActivity() {
 
         var dateString = etDate.text.toString()
         if(dateString == ""){
-            dateString = SimpleDateFormat("dd/MM/yyyy", Locale.ITALIAN).format(Date()).toString()
+            dateString = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date()).toString()
         }
 
         val totalSpent: Double = try {
@@ -277,7 +277,7 @@ class AddExpenseActivity : AppCompatActivity() {
                 myCalendar.set(Calendar.YEAR, year)
                 myCalendar.set(Calendar.MONTH, monthOfYear)
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                val sdf = SimpleDateFormat(format, Locale.ITALIAN)
+                val sdf = SimpleDateFormat(format, Locale.getDefault())
                 setText(sdf.format(myCalendar.time))
             }
 

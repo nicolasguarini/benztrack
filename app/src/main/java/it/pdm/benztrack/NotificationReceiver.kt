@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import it.pdm.benztrack.data.Utilities
@@ -17,6 +18,7 @@ class NotificationReceiver : BroadcastReceiver() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onReceive(context: Context?, intent: Intent?) {
+        Log.d("Notification", "onReceive CALLED!!")
         val sharedPreferences = context?.getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
 
         if(sharedPreferences != null && sharedPreferences.getFloat("consumptionPrevMonth", -1f) != -1f){
