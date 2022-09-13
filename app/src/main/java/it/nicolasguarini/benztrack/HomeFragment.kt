@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.content.Context
 import android.content.Intent
@@ -25,7 +25,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.google.android.material.button.MaterialButton
-import it.pdm.benztrack.data.*
+import it.nicolasguarini.benztrack.data.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.Executors
@@ -77,7 +77,7 @@ class HomeFragment : Fragment() {
         btnLineChart = requiredView.findViewById(R.id.btnTrend)
         db = AppDatabase.getDatabase(this.requireContext())
         expenseDao = db.expenseDao()
-        sharedPreferences = this.requireContext().getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        sharedPreferences = this.requireContext().getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
 
         setupListView()
 

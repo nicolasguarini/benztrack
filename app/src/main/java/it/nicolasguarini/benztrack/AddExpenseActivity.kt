@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.app.DatePickerDialog
 import android.content.Context
@@ -10,9 +10,9 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.*
-import it.pdm.benztrack.data.AppDatabase
-import it.pdm.benztrack.data.Expense
-import it.pdm.benztrack.data.ExpenseDao
+import it.nicolasguarini.benztrack.data.AppDatabase
+import it.nicolasguarini.benztrack.data.Expense
+import it.nicolasguarini.benztrack.data.ExpenseDao
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.Executors
@@ -46,7 +46,7 @@ class AddExpenseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
         expenseType = intent.getStringExtra("expenseType").toString()
-        sharedPreferences = getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        sharedPreferences = getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
 
         tvTitleLabel = findViewById(R.id.addExpenseTitleLabel)
 

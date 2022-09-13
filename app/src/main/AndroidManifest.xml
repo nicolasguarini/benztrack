@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="it.pdm.benztrack">
+    package="it.nicolasguarini.benztrack">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SET_ALARM" />
@@ -13,37 +13,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BenzTrack">
         <activity
-            android:name=".UserActivity"
+            android:name="it.nicolasguarini.benztrack.UserActivity"
             android:exported="false" />
 
-        <receiver android:name=".NotificationReceiver" />
+        <receiver android:name="it.nicolasguarini.benztrack.NotificationReceiver" />
 
         <activity
-            android:name=".SingleExpenseActivity"
+            android:name="it.nicolasguarini.benztrack.SingleExpenseActivity"
             android:exported="false" />
         <activity
-            android:name=".AddExpenseActivity"
+            android:name="it.nicolasguarini.benztrack.AddExpenseActivity"
             android:exported="false" />
         <activity
-            android:name=".DashboardActivity"
+            android:name="it.nicolasguarini.benztrack.DashboardActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectCarEuroCategoryActivity"
+            android:name="it.nicolasguarini.benztrack.SelectCarEuroCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectCarFuelTypeActivity"
+            android:name="it.nicolasguarini.benztrack.SelectCarFuelTypeActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectCarModelActivity"
+            android:name="it.nicolasguarini.benztrack.SelectCarModelActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectCarBrandActivity"
+            android:name="it.nicolasguarini.benztrack.SelectCarBrandActivity"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name="it.nicolasguarini.benztrack.WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="it.nicolasguarini.benztrack.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

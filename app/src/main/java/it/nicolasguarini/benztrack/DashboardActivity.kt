@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

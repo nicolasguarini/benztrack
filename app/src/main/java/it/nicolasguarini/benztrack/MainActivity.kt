@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val sharedPref = getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
         if(sharedPref.getBoolean("firstStart", true)){
             setupAlarmManager()
             startActivity(Intent(this, WelcomeActivity::class.java))

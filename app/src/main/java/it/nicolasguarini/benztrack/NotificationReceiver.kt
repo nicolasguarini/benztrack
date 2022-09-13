@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -7,10 +7,9 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import it.pdm.benztrack.data.Utilities
+import it.nicolasguarini.benztrack.data.Utilities
 import kotlin.math.roundToInt
 
 class NotificationReceiver : BroadcastReceiver() {
@@ -18,8 +17,7 @@ class NotificationReceiver : BroadcastReceiver() {
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onReceive(context: Context?, intent: Intent?) {
-        Log.d("Notification", "onReceive CALLED!!")
-        val sharedPreferences = context?.getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        val sharedPreferences = context?.getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
 
         if(sharedPreferences != null && sharedPreferences.getFloat("consumptionPrevMonth", -1f) != -1f){
             val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

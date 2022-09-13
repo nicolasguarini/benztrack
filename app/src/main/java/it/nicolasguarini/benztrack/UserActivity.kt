@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.app.AlarmManager
 import android.app.PendingIntent
@@ -11,9 +11,9 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Button
 import android.widget.EditText
-import it.pdm.benztrack.data.AppDatabase
-import it.pdm.benztrack.data.Expense
-import it.pdm.benztrack.data.ExpenseDao
+import it.nicolasguarini.benztrack.data.AppDatabase
+import it.nicolasguarini.benztrack.data.Expense
+import it.nicolasguarini.benztrack.data.ExpenseDao
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.Executors
@@ -36,7 +36,7 @@ class UserActivity : AppCompatActivity() {
 
         db = AppDatabase.getDatabase(applicationContext)
         expenseDao = db.expenseDao()
-        sharedPreferences = applicationContext.getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        sharedPreferences = applicationContext.getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
         userName = sharedPreferences.getString("userName", "").toString()
 
         etUserName = findViewById(R.id.etUserName)

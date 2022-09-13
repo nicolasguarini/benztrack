@@ -2,7 +2,7 @@
     <string name="app_name">BenzTrack</string>
     <string name="app_logo_description">BenzTrack Logo</string>
     <string name="welcome_title">Welcome!</string>
-    <string name="welcome_body">BenzTrack is an app that aims to keep track of the expenses related to your car, showing graphs and information about your consumption and the amount of CO emitted. After registering your car, you can start recording your expenses divided into 4 categories: Refueling, Insurance, Maintenance, Taxes. In real time you will see the graphs relating to the distribution and trend of expenses. BenzTrack will also send you periodic notifications to inform you of your performance compared to the previous month.</string>
+    <string name="welcome_body">BenzTrack is an app that aims to keep track of the expenses related to your car, showing graphs and information about your consumption and the amount of CO emitted.\n\nAfter registering your car, you can start recording your expenses divided into 4 categories: Refueling, Insurance, Maintenance, Taxes. In real time you will see the graphs relating to the distribution and trend of expenses. BenzTrack will also send you periodic notifications to inform you of your performance compared to the previous month.</string>
     <string name="btn_continue">Continue</string>
     <string name="select_brand_title">Select your car\'s manifacturer</string>
     <string name="select_model_title">Select your car\'s model</string>
@@ -89,7 +89,7 @@
     <string name="maintenance_title">Maintenance</string>
     <string name="tax_title">Taxes</string>
     <string name="expenses_trend">"Expenses trend "</string>
-    <string name="consumptions_update">Consumptions update</string>
+    <string name="consumptions_update">"Consumptions update "</string>
     <string name="spent_this_month">"This month you spent "</string>
     <string name="emitting">" €, emitting "</string>
     <string name="with_medium_consumption">" g of CO, with an average consumption of "</string>

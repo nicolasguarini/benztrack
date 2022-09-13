@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import it.pdm.benztrack.data.ExpenseView
+import it.nicolasguarini.benztrack.data.ExpenseView
 
 class CustomAdapter(private val context: Context, private val arrayList: java.util.ArrayList<ExpenseView>) : BaseAdapter(){
     private lateinit var icon: ImageView

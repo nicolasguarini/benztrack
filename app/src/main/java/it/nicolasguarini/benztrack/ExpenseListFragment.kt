@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.content.Context
 import android.content.Intent
@@ -12,10 +12,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import it.pdm.benztrack.data.AppDatabase
-import it.pdm.benztrack.data.Expense
-import it.pdm.benztrack.data.ExpenseDao
-import it.pdm.benztrack.data.ExpenseView
+import it.nicolasguarini.benztrack.data.AppDatabase
+import it.nicolasguarini.benztrack.data.Expense
+import it.nicolasguarini.benztrack.data.ExpenseDao
+import it.nicolasguarini.benztrack.data.ExpenseView
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.Executors
@@ -41,7 +41,7 @@ class ExpenseListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         requiredView = requireView()
         listView = requiredView.findViewById(R.id.lvExpenseList)
-        sharedPreferences = this.requireContext().getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        sharedPreferences = this.requireContext().getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
 
         tvWelcomeName = requiredView.findViewById(R.id.tvExpensesListWelcomeUser)
         tvCarName = requiredView.findViewById(R.id.tvCarNameExpensesList)

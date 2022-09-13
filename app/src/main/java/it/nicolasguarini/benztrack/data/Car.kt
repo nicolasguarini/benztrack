@@ -1,4 +1,4 @@
-package it.pdm.benztrack.data
+package it.nicolasguarini.benztrack.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

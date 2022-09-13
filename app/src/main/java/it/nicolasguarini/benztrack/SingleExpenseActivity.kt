@@ -1,24 +1,21 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.app.AlertDialog
-import android.app.PendingIntent.getActivity
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import it.pdm.benztrack.data.AppDatabase
-import it.pdm.benztrack.data.Expense
-import it.pdm.benztrack.data.ExpenseDao
+import it.nicolasguarini.benztrack.data.AppDatabase
+import it.nicolasguarini.benztrack.data.Expense
+import it.nicolasguarini.benztrack.data.ExpenseDao
 import java.util.concurrent.Executors
 
 
@@ -65,7 +62,7 @@ class SingleExpenseActivity : AppCompatActivity() {
         btnUpdate = findViewById(R.id.btnSingleExpenseUpdate)
         btnUpdate.setOnClickListener { updateExpense() }
 
-        sharedPreferences = applicationContext.getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        sharedPreferences = applicationContext.getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
         db = AppDatabase.getDatabase(applicationContext)
         expenseDao = db.expenseDao()
         getExpense()

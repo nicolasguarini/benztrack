@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.content.Context
 import android.content.Intent
@@ -16,7 +16,7 @@ class WelcomeActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnWelcomeNext).setOnClickListener {
             val userName = findViewById<EditText>(R.id.editTextUserName).text.toString()
             if(userName != ""){
-                getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+                getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
                     .edit()
                     .putString("userName", userName)
                     .apply()

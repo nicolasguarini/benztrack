@@ -1,4 +1,4 @@
-package it.pdm.benztrack
+package it.nicolasguarini.benztrack
 
 import android.content.Context
 import android.content.Intent
@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.*
-import it.pdm.benztrack.data.AppDatabase
-import it.pdm.benztrack.data.Car
-import it.pdm.benztrack.data.CarDao
+import it.nicolasguarini.benztrack.data.AppDatabase
+import it.nicolasguarini.benztrack.data.Car
+import it.nicolasguarini.benztrack.data.CarDao
 import java.util.concurrent.Executors
 
 class SelectCarEuroCategoryActivity : AppCompatActivity() {
@@ -61,7 +61,7 @@ class SelectCarEuroCategoryActivity : AppCompatActivity() {
     }
 
     private fun registerCar(){
-        val sharedPref = getSharedPreferences("it.pdm.benztrack", Context.MODE_PRIVATE)
+        val sharedPref = getSharedPreferences("it.nicolasguarini.benztrack", Context.MODE_PRIVATE)
         if(selectedEuro != ""){
             val newCar = Car(0, selectedBrand, selectedModel, selectedFuel, selectedEuro)
 
